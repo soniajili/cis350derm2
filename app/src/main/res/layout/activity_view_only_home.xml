@@ -13,21 +13,21 @@
             android:layout_width="200dip"
             android:layout_height="75dip"
             android:text="View Collection"
-            android:id="@+id/button"
+            android:id="@+id/viewCollectionButton2"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="200dip"
             android:layout_height="75dip"
             android:text="Search By Diagnosis"
-            android:id="@+id/button2"
+            android:id="@+id/searchButton2"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="200dip"
             android:layout_height="75dip"
             android:text="Log Out"
-            android:id="@+id/button3"
+            android:id="@+id/logoutButton2"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </LinearLayout>
