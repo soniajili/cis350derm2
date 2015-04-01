@@ -9,6 +9,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import com.parse.Parse;
@@ -59,27 +60,36 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                 "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         final EditText email = (EditText) findViewById(R.id.emailLabel);
-
+        final EditText name = (EditText) findViewById(R.id.name);
+        final EditText year = (EditText) findViewById(R.id.yearBirth);
+        final EditText password = (EditText) findViewById(R.id.passwordText);
+        final RadioGroup userkind = (RadioGroup) findViewById(R.id.user);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                ParseObject testObject = new ParseObject("TestObject");
-                testObject.put("foo", "bar");
-                testObject.saveInBackground();
+//                ParseObject testObject = new ParseObject("TestObject");
+//                testObject.put("foo", "bar");
+//                testObject.saveInBackground();
 
 
                 String username = email.getText().toString();
-
-
+                String fullname = name.getText().toString();
+                String yearbirth = year.getText().toString();
+                String userpassword = password.getText().toString();
+                int choice = userkind.getCheckedRadioButtonId();
 
                 ParseObject newuser = new ParseObject(username); // TODO: FIGURE OUT OBJECT NAMES
 
                 newuser.put("Gender", genderSelection.getSelectedItem().toString());
                 newuser.put("Country", textView.getText().toString()); //TODO: ASK ABOUT RETRIEVING COUNTRY INFO
                 newuser.put("Setting", practiceSettingSelection.getSelectedItem().toString());
+                newuser.put("Name", fullname);
+                newuser.put("Birthyear", yearbirth);
+                newuser.put("Password", userpassword);
+                newuser.put("ID", choice);
 
                 newuser.saveInBackground();
 
