@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -64,6 +65,7 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
         final EditText year = (EditText) findViewById(R.id.yearBirth);
         final EditText password = (EditText) findViewById(R.id.passwordText);
         final RadioGroup userkind = (RadioGroup) findViewById(R.id.user);
+        boolean allChecked = false;
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,27 +76,37 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
 //                testObject.put("foo", "bar");
 //                testObject.saveInBackground();
 
-
+                String gender = genderSelection.getSelectedItem().toString();
+                String country = textView.getText().toString();
+                String setting = practiceSettingSelection.getSelectedItem().toString();
                 String username = email.getText().toString();
                 String fullname = name.getText().toString();
                 String yearbirth = year.getText().toString();
                 String userpassword = password.getText().toString();
+
                 int choice = userkind.getCheckedRadioButtonId();
 
-                ParseObject newuser = new ParseObject(username); // TODO: FIGURE OUT OBJECT NAMES
+                if ((gender == "") || (country == "") || (setting == "") || (username ==
+                        "") || (fullname == "") || (yearbirth == "") || (userpassword ==
+                        "") || ((choice != 2131296350) && (choice != 2131296349))) {
+                    Toast.makeText(getApplicationContext(), "Please fill out all fields",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    ParseObject newuser = new ParseObject(username); // TODO: FIGURE OUT OBJECT NAMES
 
-                newuser.put("Gender", genderSelection.getSelectedItem().toString());
-                newuser.put("Country", textView.getText().toString()); //TODO: ASK ABOUT RETRIEVING COUNTRY INFO
-                newuser.put("Setting", practiceSettingSelection.getSelectedItem().toString());
-                newuser.put("Name", fullname);
-                newuser.put("Birthyear", yearbirth);
-                newuser.put("Password", userpassword);
-                newuser.put("ID", choice);
+                    newuser.put("Gender", gender);
+                    newuser.put("Country", country); //TODO: ASK ABOUT RETRIEVING COUNTRY INFO
+                    newuser.put("Setting", setting);
+                    newuser.put("Name", fullname);
+                    newuser.put("Birthyear", yearbirth);
+                    newuser.put("Password", userpassword);
+                    newuser.put("ID", choice);
 
-                newuser.saveInBackground();
+                    newuser.saveInBackground();
 
-                Intent intent = new Intent(getApplicationContext(), DisclaimerActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), DisclaimerActivity.class);
+                    startActivity(intent);
+                }
 
             }
         });

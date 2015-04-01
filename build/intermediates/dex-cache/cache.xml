@@ -16,32 +16,11 @@
         <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/Parse-1.9.0-3b2fb15677f551217cd2acd50c401a701b3ef496.jar" />
     </item>
     <item
-        jar="/Users/Sonia/Documents/cis350derm2/app/libs/bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-47dbe15650aee944ba773b111f5045fd03848e43.jar" />
-    </item>
-    <item
-        jar="/Users/Sonia/Documents/cis350derm2/app/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-f1404403387fafde74af1fdcc97a5aa40d6b2087.jar" />
-    </item>
-    <item
         jar="/Users/Sonia/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
         <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-b437d4d59f8eb158f4cff9e0160dbb13a2fe053e.jar" />
-    </item>
-    <item
-        jar="/Users/Sonia/Documents/cis350derm2/app/libs/bolts-android-1.1.4-javadoc.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f5dd6492c539679411fa30818320b737c410158f">
-        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-javadoc-3c7aab45bc9cdbd2f763bac8046b646bf582ec95.jar" />
     </item>
     <item
         jar="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
