@@ -295,4 +295,5 @@
         turpis consectetur luctus eu nec velit. Donec vulputate nibh in ligula accumsan ultrices.
         Nam blandit mauris eget justo maximus pharetra ut nec tellus. Aenean porttitor eros.
     </string>
+    <string name="title_activity_enter_diagnosis">EnterDiagnosis</string>
 </resources>
