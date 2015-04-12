@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
-                android:id="@+id/imageView" />
+                android:id="@+id/image" />
 
             <!-- Diagnosis Label -->
             <TextView

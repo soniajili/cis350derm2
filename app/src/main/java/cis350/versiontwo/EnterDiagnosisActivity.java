@@ -29,7 +29,7 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
         setContentView(R.layout.activity_enter_diagnosis);
 
         Intent intent = getIntent();
-        Uri uri = intent.getParcelableExtra("URI");
+        final Uri uri = intent.getParcelableExtra("URI");
 
         image = (ImageButton) findViewById(R.id.reselectPhoto);
         image.setImageURI(uri);
@@ -52,18 +52,18 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
         // Get user data
         final EditText diagnosis = (EditText) findViewById(R.id.diagnosis);
         final EditText tags = (EditText) findViewById(R.id.tags);
-        final String location = locationSelection.getSelectedItem().toString();
         previewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String location = locationSelection.getSelectedItem().toString();
                 String diagnosisText = diagnosis.getText().toString();
-                Toast.makeText(getApplicationContext(), diagnosisText,
-                        Toast.LENGTH_SHORT).show();
+
                 String tagText = tags.getText().toString();
                 Intent intent = new Intent(getApplicationContext(), PreviewActivity.class);
                 intent.putExtra("diagnosis", diagnosisText);
                 intent.putExtra("tags", tagText);
                 intent.putExtra("location", location);
+                intent.putExtra("image", uri);
                 startActivity(intent);
             }
         });

@@ -68,31 +68,6 @@ public class SubmitActivity extends ActionBarActivity {
         });
     }
 
-    private static String getFileNameByUri(Context context, Uri uri)
-    {
-        String fileName="unknown";//default fileName
-        Uri filePathUri = uri;
-        if (uri.getScheme().toString().compareTo("content")==0)
-        {
-            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-            if (cursor.moveToFirst())
-            {
-                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);//Instead of "MediaStore.Images.Media.DATA" can be used "_data"
-                filePathUri = Uri.parse(cursor.getString(column_index));
-                fileName = filePathUri.getLastPathSegment().toString();
-            }
-        }
-        else if (uri.getScheme().compareTo("file")==0)
-        {
-            fileName = filePathUri.getLastPathSegment().toString();
-        }
-        else
-        {
-            fileName = fileName+"_"+filePathUri.getLastPathSegment();
-        }
-        return fileName;
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

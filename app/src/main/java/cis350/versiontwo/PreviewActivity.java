@@ -1,15 +1,19 @@
 package cis350.versiontwo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class PreviewActivity extends ActionBarActivity {
 
+    ImageView image;
     TextView diagnosisText;
     TextView tagText;
     TextView locationText;
@@ -19,12 +23,18 @@ public class PreviewActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
 
+        image = (ImageView) findViewById(R.id.image);
         diagnosisText = (TextView) findViewById(R.id.diagnosisText);
         tagText = (TextView) findViewById(R.id.tagText);
         locationText = (TextView) findViewById(R.id.locationText);
 
-        // Set the text
+        // Set the image
         Intent intent = getIntent();
+        Uri uri = intent.getParcelableExtra("image");
+        image = (ImageView) findViewById(R.id.image);
+        image.setImageURI(uri);
+
+        // Set the text
         String diagnosis = intent.getStringExtra("diagnosis");
         diagnosisText.setText(diagnosis);
 
