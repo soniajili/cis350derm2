@@ -1,17 +1,42 @@
 package cis350.versiontwo;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 
 
 public class PracticeSettingActivity extends ActionBarActivity {
+    Spinner practiceSettingSpinner;
+    Button proceedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_setting);
+
+        // Add practice settings to the drop-down
+        practiceSettingSpinner = (Spinner) findViewById(R.id.practice_setting_spinner);
+        ArrayAdapter<CharSequence> pracSettingAdapter = ArrayAdapter.createFromResource(this,
+                R.array.practice_setting_array, android.R.layout.simple_spinner_dropdown_item);
+        pracSettingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        practiceSettingSpinner.setAdapter(pracSettingAdapter);
+
+        proceedButton = (Button) findViewById(R.id.proceed_button);
+        proceedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Save the practice setting that was selected as a sTring
+                final String pracSetting = practiceSettingSpinner.getSelectedItem().toString();
+                Intent intent = new Intent(getApplicationContext(), DisclaimerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
