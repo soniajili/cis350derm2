@@ -294,14 +294,20 @@
     <string name="title_activity_search">Search Cases</string>
     <string name="title_activity_disclaimer">Disclaimer</string>
     <string name="title_activity_registration">Register for Instaderm</string>
-    <string name="disclaimer_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Morbi vel nisl et nisi convallis ultricies ac eget nulla. Integer a magna orci.
-        Nulla malesuada ligula erat, a sagittis elit dictum sit amet. Ut turpis libero,
-        rhoncus in lorem ac, fermentum efficitur massa. Sed pulvinar nibh eget nunc blandit
-        dignissim. Pellentesque ut aliquet orci. Mauris consectetur ante sed dui aliquet mollis.
-        Sed auctor urna a lorem cursus, nec accumsan ante feugiat. Vivamus quis risus vestibulum
-        turpis consectetur luctus eu nec velit. Donec vulputate nibh in ligula accumsan ultrices.
-        Nam blandit mauris eget justo maximus pharetra ut nec tellus. Aenean porttitor eros.
+    <string name="disclaimer_text_view_only">AppName exists to serve as a free educational tool to teach how
+        skin diseases appear in skin of color (pigmented skin). AppName seeks to address the
+        dermatology education gap that exists in developing countries, where patients are primarily
+        skin of color. Currently available textbooks and online resources often do not contain
+        examples of diseases as they present in pigmented skin. Skin of color dermatology textbooks
+        are frequently cost prohibitive for learners in developing countries. AppName tries to amass
+        the clinical experience of dermatologists around the world, along with their relevant
+            clinical images from patients, in order to provide readily accessible educational resources
+            for learners. AppName is an educational tool designed for dermatologists and healthcare
+            professionals/healthcare trainees interested in learning how skin diseases present in skin
+            of color. Healthcare professionals/healthcare trainees include non-dermatologist physicians,
+            resident physicians, nurse practitioners, physician assistants, students, and community
+            health workers. Information presented here is not comprehensive and should not be used for
+            medical diagnosis purposes. Consult a trained physician for diagnosis.
     </string>
     <string name="title_activity_enter_diagnosis">EnterDiagnosis</string>
 </resources>
