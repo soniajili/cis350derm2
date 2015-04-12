@@ -6,7 +6,6 @@
         <item>Female</item>
     </string-array>
 
-
     <string-array name="country_array">
         <item>Afghanistan</item>
         <item>Albania</item>
@@ -350,10 +349,10 @@
     </string>
 
     <string-array name="practice_setting_array">
-        <item>Primarily academic center: over 50% of time spent there</item>
+        <item>Primarily academic center: over 50%% of time spent there</item>
         <item>Primarily in the community (private practice, health center): over
-            50% of time spent here</item>
-        <item>50% time in an academic center, 50% time in the community</item>
+            50%% of time spent here</item>
+        <item>50%% time in an academic center, 50%% time in the community</item>
     </string-array>
 
     <string-array name="view_only_practice_setting_array">
