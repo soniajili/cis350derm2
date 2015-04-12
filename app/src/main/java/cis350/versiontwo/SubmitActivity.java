@@ -1,7 +1,12 @@
 package cis350.versiontwo;
 
+import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,9 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,6 +34,7 @@ public class SubmitActivity extends ActionBarActivity {
     private static final int CHOOSE_IMAGE_ACTIVITY_REQUEST_CODE = 101;
     public static final int MEDIA_TYPE_IMAGE = 1;
     private Uri fileUri;
+    String imgDecodableString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +66,54 @@ public class SubmitActivity extends ActionBarActivity {
                 startActivityForResult(intent, CHOOSE_IMAGE_ACTIVITY_REQUEST_CODE);
             }
         });
+    }
+
+    private static String getFileNameByUri(Context context, Uri uri)
+    {
+        String fileName="unknown";//default fileName
+        Uri filePathUri = uri;
+        if (uri.getScheme().toString().compareTo("content")==0)
+        {
+            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+            if (cursor.moveToFirst())
+            {
+                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);//Instead of "MediaStore.Images.Media.DATA" can be used "_data"
+                filePathUri = Uri.parse(cursor.getString(column_index));
+                fileName = filePathUri.getLastPathSegment().toString();
+            }
+        }
+        else if (uri.getScheme().compareTo("file")==0)
+        {
+            fileName = filePathUri.getLastPathSegment().toString();
+        }
+        else
+        {
+            fileName = fileName+"_"+filePathUri.getLastPathSegment();
+        }
+        return fileName;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CHOOSE_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
+
+            Uri uri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                // Log.d(TAG, String.valueOf(bitmap));
+
+
+                Intent intent = new Intent(getApplicationContext(), EnterDiagnosisActivity.class);
+                intent.putExtra("URI", uri);
+                startActivity(intent);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
