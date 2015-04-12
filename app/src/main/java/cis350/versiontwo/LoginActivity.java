@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.*;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -19,16 +19,16 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_collection);
 
         signInButton = (Button) findViewById(R.id.signInButton);
-        EditText emailText = (EditText) findViewById(R.id.emailText);
-        EditText passwordText = (EditText) findViewById(R.id.passwordText);
+        final EditText emailText = (EditText) findViewById(R.id.emailText);
+        final EditText passwordText = (EditText) findViewById(R.id.passwordText);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO: FIGURE THIS OUT
 
-                String email =
-                String password =
+                String email = emailText.getText().toString();
+                String password = passwordText.getText().toString();
                 boolean userExists = userExists(email, password);
 
                 // If the user exists in the database, proceed into the app
@@ -47,7 +47,7 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     private boolean userExists(String email, String password) {
-
+        return true;
     }
 
     @Override
