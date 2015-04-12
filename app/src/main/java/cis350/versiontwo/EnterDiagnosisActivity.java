@@ -4,14 +4,41 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+import com.parse.Parse;
 
 
 public class EnterDiagnosisActivity extends ActionBarActivity {
-
+    Spinner locationSelection;
+    Button preview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_diagnosis);
+
+        // Add location information
+        locationSelection = (Spinner) findViewById(R.id.location_spinner);
+        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter
+                .createFromResource(this,
+                        R.array.location_array, android.R.layout.simple_spinner_item);
+        locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSelection.setAdapter(locationAdapter);
+
+        preview = (Button) findViewById(R.id.registerButton);
+
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+
+        // Get user data
+        final EditText diagnosis = (EditText) findViewById(R.id.diagnosis);
+        final EditText tags = (EditText) findViewById(R.id.tags);
+        String location= locationSelection.getSelectedItem().toString();
     }
 
 

@@ -270,6 +270,14 @@
         <item>Student</item>
         <item>Dermatologist</item>
     </string-array>
+
+    <string-array name="location_array">
+        <item>Head</item>
+        <item>Chest</item>
+        <item>Arm</item>
+        <item>Leg</item>
+    </string-array>
+
     <string name="view">View-only user</string>
     <string name="submission">Submission user</string>
     <string name="submissionDescription">Submission users can submit and view photos.
