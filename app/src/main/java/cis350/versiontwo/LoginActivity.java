@@ -1,17 +1,44 @@
 package cis350.versiontwo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class LoginActivity extends ActionBarActivity {
+
+    Button signInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
+
+        signInButton = (Button) findViewById(R.id.signInButton);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: FIGURE THIS OUT
+/*
+                boolean userExists = determineUserExistence(String email, String password);
+
+                // If the user exists in the database, proceed into the app
+                if (userExists) {
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
+                // If the user does not exist in the database, go to the registration page
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+                    startActivity(intent);
+                }*/
+
+
+            }
+        });
     }
 
 
