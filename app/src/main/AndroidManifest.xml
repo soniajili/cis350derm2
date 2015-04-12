@@ -64,6 +64,10 @@
             android:name=".PreviewActivity"
             android:label="@string/title_activity_preview" >
         </activity>
+        <activity
+            android:name=".ViewOnlyDisclaimerActivity"
+            android:label="@string/title_activity_view_only_disclaimer" >
+        </activity>
     </application>
 
 </manifest>
