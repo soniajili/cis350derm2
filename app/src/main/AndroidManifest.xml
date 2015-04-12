@@ -60,6 +60,10 @@
             android:name=".EnterDiagnosisActivity"
             android:label="@string/title_activity_enter_diagnosis" >
         </activity>
+        <activity
+            android:name=".PreviewActivity"
+            android:label="@string/title_activity_preview" >
+        </activity>
     </application>
 
 </manifest>

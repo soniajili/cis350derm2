@@ -15,11 +15,19 @@
                       android:layout_height="match_parent"
                       android:orientation="vertical" >
 
-            <!-- Image -->
+            <!-- Image
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
-                android:id="@+id/imageView" />
+                android:id="@+id/imageView" /> -->
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:id="@+id/reselectPhoto"
+                android:background="#EEEEEE"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal" />
 
             <!-- Diagnosis Label -->
             <TextView

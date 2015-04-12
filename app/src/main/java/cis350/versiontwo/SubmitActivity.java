@@ -109,6 +109,7 @@ public class SubmitActivity extends ActionBarActivity {
                 Intent intent = new Intent(getApplicationContext(), EnterDiagnosisActivity.class);
                 intent.putExtra("URI", uri);
                 startActivity(intent);
+                finish();
 
             } catch (IOException e) {
                 e.printStackTrace();
