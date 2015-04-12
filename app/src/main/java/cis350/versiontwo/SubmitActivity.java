@@ -80,11 +80,9 @@ public class SubmitActivity extends ActionBarActivity {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Log.d(TAG, String.valueOf(bitmap));
 
-
                 Intent intent = new Intent(getApplicationContext(), EnterDiagnosisActivity.class);
                 intent.putExtra("URI", uri);
                 startActivity(intent);
-                finish();
 
             } catch (IOException e) {
                 e.printStackTrace();

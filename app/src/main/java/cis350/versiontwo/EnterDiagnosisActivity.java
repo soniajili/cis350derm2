@@ -33,6 +33,12 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
 
         image = (ImageButton) findViewById(R.id.reselectPhoto);
         image.setImageURI(uri);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // Add location information
         locationSelection = (Spinner) findViewById(R.id.location_spinner);
