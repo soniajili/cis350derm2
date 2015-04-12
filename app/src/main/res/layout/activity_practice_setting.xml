@@ -18,7 +18,7 @@
         android:layout_marginTop="68dp" />
 
     <Spinner
-        android:id="@+id/practiceSettingSpinner"
+        android:id="@+id/practice_setting_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F8F8FF"
@@ -27,6 +27,17 @@
         android:text="Select from menu"
         android:layout_below="@+id/dermPracticeSettingText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:spinnerMode="dialog" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:id="@+id/proceed_button"
+        android:layout_below="@+id/practice_setting_spinner"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>
