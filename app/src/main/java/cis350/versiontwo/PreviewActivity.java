@@ -80,7 +80,7 @@ public class PreviewActivity extends ActionBarActivity {
                         convertImageToBytes(Uri.parse
                                 (uriString)));
                 imageFile.saveInBackground();
-
+                imageSubmission.put("objectType", "image");
                 imageSubmission.put("file", imageFile);
                 imageSubmission.put("tags", tags);
                 imageSubmission.put("location", location);
