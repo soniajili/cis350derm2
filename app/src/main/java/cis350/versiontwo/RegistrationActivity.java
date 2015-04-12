@@ -2,6 +2,7 @@ package cis350.versiontwo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -65,6 +66,9 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
         final EditText year = (EditText) findViewById(R.id.yearBirth);
         final EditText password = (EditText) findViewById(R.id.passwordText);
         final RadioGroup userkind = (RadioGroup) findViewById(R.id.user);
+        final RadioButton submission = (RadioButton) findViewById(R.id.submissionUser);
+        final RadioButton viewonly = (RadioButton) findViewById(R.id.viewUser);
+
         boolean allChecked = false;
 
         register.setOnClickListener(new View.OnClickListener() {
@@ -84,11 +88,14 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                 String yearbirth = year.getText().toString();
                 String userpassword = password.getText().toString();
 
+                int submissionid = submission.getId();
+                int viewonlyid = viewonly.getId();
+
                 int choice = userkind.getCheckedRadioButtonId();
 
                 if ((gender == "") || (country == "") || (setting == "") || (username ==
                         "") || (fullname == "") || (yearbirth == "") || (userpassword ==
-                        "") || ((choice != 2131296350) && (choice != 2131296349))) {
+                        "") || ((choice != submissionid) && (choice != viewonlyid))) {
                     Toast.makeText(getApplicationContext(), "Please fill out all fields",
                             Toast.LENGTH_SHORT).show();
                 } else {
@@ -100,7 +107,13 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                     newuser.put("Name", fullname);
                     newuser.put("Birthyear", yearbirth);
                     newuser.put("Password", userpassword);
-                    newuser.put("ID", choice);
+
+                    if (submissionid == choice) {
+                        newuser.put("ID", "submission");
+                    }
+                    else if (submissionid == choice) {
+                        newuser.put("ID", "viewonly");
+                    }
 
                     newuser.saveInBackground();
 
