@@ -396,4 +396,6 @@
     <string name="title_activity_preview">Preview Image</string>
     <string name="title_activity_view_only_disclaimer">ViewOnlyDisclaimerActivity</string>
     <string name="title_activity_practice_setting">PracticeSettingActivity</string>
+    <string name="title_activity_view_only_practice_setting">ViewOnlyPracticeSettingActivity
+    </string>
 </resources>

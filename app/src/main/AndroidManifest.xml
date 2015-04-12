@@ -72,6 +72,10 @@
             android:name=".PracticeSettingActivity"
             android:label="@string/title_activity_practice_setting" >
         </activity>
+        <activity
+            android:name=".ViewOnlyPracticeSettingActivity"
+            android:label="@string/title_activity_view_only_practice_setting" >
+        </activity>
     </application>
 
 </manifest>
