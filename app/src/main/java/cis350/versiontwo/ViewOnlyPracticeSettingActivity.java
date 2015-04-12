@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,17 +18,25 @@ public class ViewOnlyPracticeSettingActivity extends ActionBarActivity {
     Spinner secondarySpinner;
     Button proceedButton;
 
+    String pracSetting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practice_setting);
+        setContentView(R.layout.activity_view_only_practice_setting);
 
         // Add practice settings to the drop-down
-        practiceSettingSpinner = (Spinner) findViewById(R.id.practice_setting_spinner);
+        practiceSettingSpinner = (Spinner) findViewById(R.id.view_only_practice_setting_spinner);
         ArrayAdapter<CharSequence> pracSettingAdapter = ArrayAdapter.createFromResource(this,
-                R.array.practice_setting_array, android.R.layout.simple_spinner_dropdown_item);
+                R.array.view_only_practice_setting_array, android.R.layout.simple_spinner_dropdown_item);
         pracSettingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         practiceSettingSpinner.setAdapter(pracSettingAdapter);
+       /*
+        if (pracSetting.equals("Physician, Primary Care")) {
+            secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+            ArrayAdapter<CharSequence> secondarySettingAdapter = ArrayAdapter.createFromResource(this,
+                    R.array.physician_primary_care_array, android.R.layout.simple_spinner_dropdown_item);
+        }*/
 
         proceedButton = (Button) findViewById(R.id.proceed_button);
         proceedButton.setOnClickListener(new View.OnClickListener() {
