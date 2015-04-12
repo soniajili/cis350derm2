@@ -68,6 +68,10 @@
             android:name=".ViewOnlyDisclaimerActivity"
             android:label="@string/title_activity_view_only_disclaimer" >
         </activity>
+        <activity
+            android:name=".PracticeSettingActivity"
+            android:label="@string/title_activity_practice_setting" >
+        </activity>
     </application>
 
 </manifest>

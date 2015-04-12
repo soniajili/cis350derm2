@@ -348,7 +348,64 @@
         Information presented here is not comprehensive and should not be used for medical diagnosis
         purposes. Consult a trained physician for diagnosis.
     </string>
+
+    <string-array name="practice_setting_array">
+        <item>Primarily academic center: over 50% of time spent there</item>
+        <item>Primarily in the community (private practice, health center): over
+            50% of time spent here</item>
+        <item>50% time in an academic center, 50% time in the community</item>
+    </string-array>
+
+    <string-array name="view_only_practice_setting_array">
+        <item>Physician, Primary Care</item>
+        <item>Physician, Specialist/Subspecialist</item>
+        <item>Physician, Surgery</item>
+        <item>Nurse Practitioner/Physician Assitant, Primary Care</item>
+        <item>Nurse Practitioner/Physician Assitant, Specialist/Subspecialist</item>
+        <item>Community Health Worker</item>
+        <item>Medical Student</item>
+        <item>NP Student</item>
+        <item>PA Student</item>
+    </string-array>
+
+    <string-array name="physician_primary_care_array">
+        <item>Internal Medicine</item>
+        <item>Pediatrics</item>
+        <item>Family Medicine</item>
+        <item>Med-Peds</item>
+        <item>OB/Gyn</item>
+    </string-array>
+
+    <string-array name="physician_specialist_array">
+        <item>Internal Medicine subspecialty</item>
+        <item>Pediatrics subspecialty</item>
+        <item>Med-Peds subspecialty</item>
+        <item>Ophthalmology</item>
+        <item>Anesthesiology</item>
+        <item>Physicial Medicine and Rehabilitation</item>
+        <item>Radiology</item>
+        <item>Pathology</item>
+    </string-array>
+
+    <string-array name="physician_surgery_array">
+        <item>OB/Gyn</item>
+        <item>General Surgery</item>
+        <item>Cardiothoracic Surgery</item>
+        <item>ENT Surgery</item>
+        <item>Neurosurgery</item>
+        <item>Plastic Surgery</item>
+        <item>Transplant Surgery</item>
+    </string-array>
+
+    <string-array name="np_primary_care_array">
+        <item>Internal Medicine</item>
+        <item>Pediatrics</item>
+        <item>Family Medicine</item>
+        <item>OB/Gyn</item>
+    </string-array>
+
     <string name="title_activity_enter_diagnosis">EnterDiagnosis</string>
     <string name="title_activity_preview">PreviewActivity</string>
     <string name="title_activity_view_only_disclaimer">ViewOnlyDisclaimerActivity</string>
+    <string name="title_activity_practice_setting">PracticeSettingActivity</string>
 </resources>
