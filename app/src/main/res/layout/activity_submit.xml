@@ -25,5 +25,6 @@
             android:id="@+id/galleryButton"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/photo_gallery"/>
+
     </LinearLayout>
 </RelativeLayout>
