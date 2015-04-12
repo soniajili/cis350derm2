@@ -13,13 +13,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.parse.Parse;
 
 
 public class EnterDiagnosisActivity extends ActionBarActivity {
     Spinner locationSelection;
-    Button preview;
+    Button previewButton;
     ImageButton image;
 
     @Override
@@ -41,7 +42,7 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSelection.setAdapter(locationAdapter);
 
-        preview = (Button) findViewById(R.id.registerButton);
+        previewButton = (Button) findViewById(R.id.previewButton);
 
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this);
@@ -51,7 +52,21 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
         // Get user data
         final EditText diagnosis = (EditText) findViewById(R.id.diagnosis);
         final EditText tags = (EditText) findViewById(R.id.tags);
-        String location= locationSelection.getSelectedItem().toString();
+        final String location = locationSelection.getSelectedItem().toString();
+        previewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String diagnosisText = diagnosis.getText().toString();
+                Toast.makeText(getApplicationContext(), diagnosisText,
+                        Toast.LENGTH_SHORT).show();
+                String tagText = tags.getText().toString();
+                Intent intent = new Intent(getApplicationContext(), PreviewActivity.class);
+                intent.putExtra("diagnosis", diagnosisText);
+                intent.putExtra("tags", tagText);
+                intent.putExtra("location", location);
+                startActivity(intent);
+            }
+        });
     }
 
 
