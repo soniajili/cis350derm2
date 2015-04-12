@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ public class PreviewActivity extends ActionBarActivity {
     TextView diagnosisText;
     TextView tagText;
     TextView locationText;
+    Button editButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,14 @@ public class PreviewActivity extends ActionBarActivity {
 
         String location = intent.getStringExtra("location");
         locationText.setText(location);
+
+        editButton = (Button) findViewById(R.id.editButton);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

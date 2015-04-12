@@ -44,10 +44,10 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
 
         previewButton = (Button) findViewById(R.id.previewButton);
 
-        // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
+        // TODO: Enable Local Datastore.
+       /* Parse.enableLocalDatastore(this);
         Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");*/
 
         // Get user data
         final EditText diagnosis = (EditText) findViewById(R.id.diagnosis);
