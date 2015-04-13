@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Dermatologist Practice Setting"
+        android:text="Non-Dermatologist Practice Setting"
         android:id="@+id/dermPracticeSettingText"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -18,26 +18,36 @@
         android:layout_marginTop="68dp" />
 
     <Spinner
-        android:id="@+id/practice_setting_spinner"
+        android:id="@+id/view_only_practice_setting_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F8F8FF"
-        android:textSize="15dp"
+        android:textSize="10dp"
         android:layout_gravity="center_horizontal"
         android:text="Select from menu"
+        android:spinnerMode="dialog"
         android:layout_below="@+id/dermPracticeSettingText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dialog" />
+        android:layout_alignRight="@+id/dermPracticeSettingText"
+        android:layout_alignEnd="@+id/dermPracticeSettingText" />
+
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8FF"
+        android:textSize="10dp"
+        android:id="@+id/secondary_setting_spinner"
+        android:layout_below="@+id/view_only_practice_setting_spinner"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Proceed"
         android:id="@+id/proceed_button"
-        android:layout_below="@+id/practice_setting_spinner"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/view_only_practice_setting_spinner"
+        android:layout_alignEnd="@+id/view_only_practice_setting_spinner" />
 
 
 </RelativeLayout>

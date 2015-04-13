@@ -5,45 +5,55 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
 
-public class PracticeSettingActivity extends ActionBarActivity {
+public class ViewOnlyPracticeSettingActivity extends ActionBarActivity {
+
     Spinner practiceSettingSpinner;
+    Spinner secondarySpinner;
     Button proceedButton;
+
+    String pracSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practice_setting);
+        setContentView(R.layout.activity_view_only_practice_setting);
 
         // Add practice settings to the drop-down
-        practiceSettingSpinner = (Spinner) findViewById(R.id.practice_setting_spinner);
+        practiceSettingSpinner = (Spinner) findViewById(R.id.view_only_practice_setting_spinner);
         ArrayAdapter<CharSequence> pracSettingAdapter = ArrayAdapter.createFromResource(this,
-                R.array.practice_setting_array, android.R.layout.simple_spinner_dropdown_item);
+                R.array.view_only_practice_setting_array, android.R.layout.simple_spinner_dropdown_item);
         pracSettingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         practiceSettingSpinner.setAdapter(pracSettingAdapter);
+       /*
+        if (pracSetting.equals("Physician, Primary Care")) {
+            secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+            ArrayAdapter<CharSequence> secondarySettingAdapter = ArrayAdapter.createFromResource(this,
+                    R.array.physician_primary_care_array, android.R.layout.simple_spinner_dropdown_item);
+        }*/
 
         proceedButton = (Button) findViewById(R.id.proceed_button);
         proceedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Save the practice setting that was selected as a sTring
+                // Save the practice setting that was selected as a String
                 final String pracSetting = practiceSettingSpinner.getSelectedItem().toString();
-                Intent intent = new Intent(getApplicationContext(), DisclaimerActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ViewOnlyDisclaimerActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_practice_setting, menu);
+        getMenuInflater().inflate(R.menu.menu_view_only_practice_setting, menu);
         return true;
     }
 

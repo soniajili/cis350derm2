@@ -1,16 +1,26 @@
 package cis350.versiontwo;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.parse.Parse;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 
 public class PreviewActivity extends ActionBarActivity {
@@ -20,6 +30,7 @@ public class PreviewActivity extends ActionBarActivity {
     TextView tagText;
     TextView locationText;
     Button editButton;
+    Button submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +44,19 @@ public class PreviewActivity extends ActionBarActivity {
 
         // Set the image
         Intent intent = getIntent();
-        Uri uri = intent.getParcelableExtra("image");
+        final Uri uri = intent.getParcelableExtra("image");
+        final String uriString = uri.toString();
         image = (ImageView) findViewById(R.id.image);
         image.setImageURI(uri);
 
         // Set the text
-        String diagnosis = intent.getStringExtra("diagnosis");
+        final String diagnosis = intent.getStringExtra("diagnosis");
         diagnosisText.setText(diagnosis);
 
-        String tags = intent.getStringExtra("tags");
+        final String tags = intent.getStringExtra("tags");
         tagText.setText(tags);
 
-        String location = intent.getStringExtra("location");
+        final String location = intent.getStringExtra("location");
         locationText.setText(location);
 
         editButton = (Button) findViewById(R.id.editButton);
@@ -55,8 +67,49 @@ public class PreviewActivity extends ActionBarActivity {
             }
         });
 
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+
+        submitButton = (Button) findViewById(R.id.submitButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseObject imageSubmission = new ParseObject(diagnosis);
+                ParseFile imageFile = new ParseFile("img",
+                        convertImageToBytes(Uri.parse
+                                (uriString)));
+                imageFile.saveInBackground();
+                imageSubmission.put("objectType", "image");
+                imageSubmission.put("file", imageFile);
+                imageSubmission.put("tags", tags);
+                imageSubmission.put("location", location);
+                imageSubmission.saveInBackground();
+
+                Intent intent = new Intent(getApplicationContext(),
+                        ViewCollectionActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 
+    private byte[] convertImageToBytes(Uri uri) {
+        byte[] data = null;
+        try {
+            ContentResolver cr = getBaseContext().getContentResolver();
+            InputStream inputStream = cr.openInputStream(uri);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            data = baos.toByteArray();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
