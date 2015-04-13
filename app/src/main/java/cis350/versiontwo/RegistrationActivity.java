@@ -14,8 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
+import com.parse.*;
 
 /**
  * Created by Sonia on 3/18/15.
