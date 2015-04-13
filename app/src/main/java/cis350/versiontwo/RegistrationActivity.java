@@ -98,14 +98,18 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                     Toast.makeText(getApplicationContext(), "Please fill out all fields",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    ParseObject newuser = new ParseObject(username); // TODO: FIGURE OUT OBJECT NAMES
+                    ParseUser newuser = new ParseUser(); // TODO: FIGURE OUT OBJECT NAMES
+
+                    newuser.setUsername(username);
+                    newuser.setPassword(userpassword);
+                    newuser.setEmail(username);
 
                     newuser.put("Gender", gender);
                     newuser.put("Country", country); //TODO: ASK ABOUT RETRIEVING COUNTRY INFO
                     newuser.put("Setting", setting);
                     newuser.put("Name", fullname);
                     newuser.put("Birthyear", yearbirth);
-                    newuser.put("Password", userpassword);
+                    //newuser.put("Password", userpassword);
 
                     if (submissionid == choice) {
                         newuser.put("ID", "submission");
@@ -114,7 +118,18 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                         newuser.put("ID", "viewonly");
                     }
 
-                    newuser.saveInBackground();
+                    //newuser.saveInBackground();
+
+                    newuser.signUpInBackground(new SignUpCallback() {
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                // Hooray! Let them use the app now.
+                            } else {
+                                // Sign up didn't succeed. Look at the ParseException
+                                // to figure out what went wrong
+                            }
+                        }
+                    });
 
                     Intent intent = new Intent(getApplicationContext(), DisclaimerActivity.class);
                     startActivity(intent);

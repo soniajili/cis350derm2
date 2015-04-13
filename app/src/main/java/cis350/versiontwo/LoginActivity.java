@@ -32,43 +32,52 @@ public class LoginActivity extends ActionBarActivity {
 
                 String email = emailText.getText().toString();
                 String password = passwordText.getText().toString();
-                boolean userExists = userExists(email, password);
+                //boolean userExists = userExists(email, password);
 
-                // If the user exists in the database, proceed into the app
-                if (userExists) {
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    startActivity(intent);
-                // If the user does not exist in the database, go to the registration page
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
-                    startActivity(intent);
-                }
+//                // If the user exists in the database, proceed into the app
+//                if (userExists) {
+//                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+//                    startActivity(intent);
+//                // If the user does not exist in the database, go to the registration page
+//                } else {
+//                    Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+//                    startActivity(intent);
+//                }
 
+                ParseUser.logInInBackground(email, password, new LogInCallback() {
+                    public void done(ParseUser user, ParseException e) {
+                        if (user != null) {
+                            // Hooray! The user is logged in.
+                        } else {
+                            // Signup failed. Look at the ParseException to see what happened.
+                        }
+                    }
+                });
 
             }
         });
     }
 
-    private boolean userExists(String email, String password) {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery(email);
-        query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-            public void done(ParseObject object, ParseException e) {
-                if (e == null) {
-                    String savedPassword = object.getString("Password");
-                    if (savedPassword.equals(password)) {
-                        return true;
-                    }
-                    else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            }
-        });
-
-        return true;
-    }
+//    private boolean userExists(String email, String password) {
+//        ParseQuery<ParseObject> query = ParseQuery.getQuery(email);
+//        query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
+//            public void done(ParseObject object, ParseException e) {
+//                if (e == null) {
+//                    String savedPassword = object.getString("Password");
+//                    if (savedPassword.equals(password)) {
+//                        return true;
+//                    }
+//                    else {
+//                        return false;
+//                    }
+//                } else {
+//                    return false;
+//                }
+//            }
+//        });
+//
+//        return true;
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

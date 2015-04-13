@@ -87,7 +87,7 @@ public class PreviewActivity extends ActionBarActivity {
                 imageSubmission.saveInBackground();
 
                 Intent intent = new Intent(getApplicationContext(),
-                        ViewCollectionActivity.class);
+                        CollectionActivity.class);
                 startActivity(intent);
 
             }
