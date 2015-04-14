@@ -125,6 +125,8 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                             if (e == null) {
                                 // Hooray! Let them use the app now.
                             } else {
+                                Toast.makeText(getApplicationContext(), "Registration failed.",
+                                        Toast.LENGTH_SHORT).show();
                                 // Sign up didn't succeed. Look at the ParseException
                                 // to figure out what went wrong
                             }

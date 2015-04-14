@@ -3,6 +3,7 @@ package cis350.versiontwo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,11 +20,15 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_collection);
+        setContentView(R.layout.activity_login);
 
         signInButton = (Button) findViewById(R.id.signInButton);
         final EditText emailText = (EditText) findViewById(R.id.emailText);
         final EditText passwordText = (EditText) findViewById(R.id.passwordText);
+
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +37,11 @@ public class LoginActivity extends ActionBarActivity {
 
                 String email = emailText.getText().toString();
                 String password = passwordText.getText().toString();
+
+                Log.d("hi email", email);
+                Log.d("hi password", password);
+
+
                 //boolean userExists = userExists(email, password);
 
 //                // If the user exists in the database, proceed into the app
@@ -47,8 +57,12 @@ public class LoginActivity extends ActionBarActivity {
                 ParseUser.logInInBackground(email, password, new LogInCallback() {
                     public void done(ParseUser user, ParseException e) {
                         if (user != null) {
+                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                            startActivity(intent);
+                            Log.d("HI username", "WORKED");
                             // Hooray! The user is logged in.
                         } else {
+                            Log.d("HI username", "FAILED");
                             Toast.makeText(getApplicationContext(), "Your username or password did not match.",
                                     Toast.LENGTH_SHORT).show();
                             // Signup failed. Look at the ParseException to see what happened.
@@ -56,6 +70,17 @@ public class LoginActivity extends ActionBarActivity {
                     }
                 });
 
+//                try {
+//                    ParseUser currentUser = ParseUser.logIn(email, password);
+//                    if (currentUser != null) {
+//                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+//                            startActivity(intent);
+//                    }
+//                }
+//                catch (ParseException e) {
+//                    Toast.makeText(getApplicationContext(), "Your username or password did not match.",
+//                                    Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }
