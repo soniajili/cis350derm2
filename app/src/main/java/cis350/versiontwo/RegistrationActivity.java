@@ -51,8 +51,6 @@ public class RegistrationActivity extends ActionBarActivity {
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         practiceSettingSelection.setAdapter(settingAdapter);
 
-        register = (Button) findViewById(R.id.registerButton);
-
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
