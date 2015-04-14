@@ -116,74 +116,7 @@
                 android:textSize="15dp"
                 android:hint="Begin typing to display countries"/>
 
-            <!-- Practice Setting Label -->
-            <TextView
-                android:id="@+id/practiceSettingLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:text="Practice Setting"/>
-            <Spinner
-                android:id="@+id/setting_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#F8F8FF"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15dp"
-                android:text="Select from menu"
-                />
-            <!-- Type of User -->
-            <TextView
-                android:id="@+id/submissionUserDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#545454"
-                android:textSize="15dp"
-                android:text="@string/submissionDescription"
-                />
 
-            <TextView
-                android:id="@+id/userType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:text="Type of User"
-                android:textSize="20dp"
-                />
-            <TextView
-                android:id="@+id/viewUserDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#545454"
-                android:textSize="15dp"
-                android:text="@string/viewDescription"
-                />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:id="@+id/user">
-                <RadioButton android:id="@+id/viewUser"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="@string/view"
-                             android:onClick="onClick"/>
-                <RadioButton android:id="@+id/submissionUser"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="@string/submission"
-                             android:onClick="onClick"/>
-            </RadioGroup>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:id="@+id/registerButton"
-                android:layout_alignBottom="@+id/scrollView"
-                android:layout_centerHorizontal="true"/>
 
         </LinearLayout>
     </ScrollView>
