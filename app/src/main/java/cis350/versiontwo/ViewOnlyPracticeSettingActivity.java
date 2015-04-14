@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -31,6 +32,53 @@ public class ViewOnlyPracticeSettingActivity extends ActionBarActivity {
                 R.array.view_only_practice_setting_array, android.R.layout.simple_spinner_dropdown_item);
         pracSettingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         practiceSettingSpinner.setAdapter(pracSettingAdapter);
+        practiceSettingSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (practiceSettingSpinner.getSelectedItem().toString().equals("Physician, Primary Care")) {
+                    secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+                    ArrayAdapter<CharSequence> secondarySpinnerAdapter = ArrayAdapter.createFromResource(ViewOnlyPracticeSettingActivity.this,
+                            R.array.physician_primary_care_array, android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinner.setAdapter(secondarySpinnerAdapter);
+                } else if (practiceSettingSpinner.getSelectedItem().toString().equals("Physician, Specialist/Subspecialist")) {
+                    secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+                    ArrayAdapter<CharSequence> secondarySpinnerAdapter = ArrayAdapter.createFromResource(ViewOnlyPracticeSettingActivity.this,
+                            R.array.physician_specialist_array, android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinner.setAdapter(secondarySpinnerAdapter);
+                } else if (practiceSettingSpinner.getSelectedItem().toString().equals("Physician, Surgery")) {
+                    secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+                    ArrayAdapter<CharSequence> secondarySpinnerAdapter = ArrayAdapter.createFromResource(ViewOnlyPracticeSettingActivity.this,
+                            R.array.physician_surgery_array, android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinner.setAdapter(secondarySpinnerAdapter);
+                } else if (practiceSettingSpinner.getSelectedItem().toString().equals("Nurse Practitioner/Physician Assistant, Primary Care")) {
+                    secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+                    ArrayAdapter<CharSequence> secondarySpinnerAdapter = ArrayAdapter.createFromResource(ViewOnlyPracticeSettingActivity.this,
+                            R.array.np_primary_care_array, android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinner.setAdapter(secondarySpinnerAdapter);
+                } else if (practiceSettingSpinner.getSelectedItem().toString().equals("Nurse Practitioner/Physician Assistant, Specialist/Subspecialist")) {
+                    secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+                    ArrayAdapter<CharSequence> secondarySpinnerAdapter = ArrayAdapter.createFromResource(ViewOnlyPracticeSettingActivity.this,
+                            R.array.np_specialist_array, android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinner.setAdapter(secondarySpinnerAdapter);
+                } else {
+                    secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
+                    ArrayAdapter<CharSequence> secondarySpinnerAdapter = ArrayAdapter.createFromResource(ViewOnlyPracticeSettingActivity.this,
+                            R.array.empty_array, android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    secondarySpinner.setAdapter(secondarySpinnerAdapter);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
        /*
         if (pracSetting.equals("Physician, Primary Care")) {
             secondarySpinner = (Spinner) findViewById(R.id.secondary_setting_spinner);
