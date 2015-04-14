@@ -9,9 +9,6 @@ import android.view.View;
 import android.widget.Toast;
 import android.widget.Button;
 
-import com.parse.Parse;
-import com.parse.ParseUser;
-
 
 public class HomeActivity extends ActionBarActivity {
 
@@ -55,7 +52,6 @@ public class HomeActivity extends ActionBarActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseUser.logOut();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }

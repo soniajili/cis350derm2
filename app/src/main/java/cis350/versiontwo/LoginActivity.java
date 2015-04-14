@@ -16,21 +16,11 @@ import com.parse.ParseQuery;
 public class LoginActivity extends ActionBarActivity {
 
     Button signInButton;
-    Button registerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        registerButton = (Button) findViewById(R.id.register_button);
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
-                startActivity(intent);
-            }
-        });
 
         signInButton = (Button) findViewById(R.id.signInButton);
         final EditText emailText = (EditText) findViewById(R.id.emailText);
