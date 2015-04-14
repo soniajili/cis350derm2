@@ -49,6 +49,8 @@ public class LoginActivity extends ActionBarActivity {
                         if (user != null) {
                             // Hooray! The user is logged in.
                         } else {
+                            Toast.makeText(getApplicationContext(), "Your username or password did not match.",
+                                    Toast.LENGTH_SHORT).show();
                             // Signup failed. Look at the ParseException to see what happened.
                         }
                     }
@@ -57,27 +59,6 @@ public class LoginActivity extends ActionBarActivity {
             }
         });
     }
-
-//    private boolean userExists(String email, String password) {
-//        ParseQuery<ParseObject> query = ParseQuery.getQuery(email);
-//        query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-//            public void done(ParseObject object, ParseException e) {
-//                if (e == null) {
-//                    String savedPassword = object.getString("Password");
-//                    if (savedPassword.equals(password)) {
-//                        return true;
-//                    }
-//                    else {
-//                        return false;
-//                    }
-//                } else {
-//                    return false;
-//                }
-//            }
-//        });
-//
-//        return true;
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

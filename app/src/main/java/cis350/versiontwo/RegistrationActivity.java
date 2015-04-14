@@ -114,7 +114,7 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                     if (submissionid == choice) {
                         newuser.put("ID", "submission");
                     }
-                    else if (submissionid == choice) {
+                    else  {//if (submissionid == choice) {
                         newuser.put("ID", "viewonly");
                     }
 
