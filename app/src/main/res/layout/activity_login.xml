@@ -28,8 +28,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In or Register"
+        android:text="Sign In"
         android:id="@+id/signInButton"
+        android:layout_gravity="right" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/register_button"
         android:layout_gravity="right" />
 </LinearLayout>
 
