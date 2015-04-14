@@ -392,6 +392,15 @@
         <item>OB/Gyn</item>
     </string-array>
 
+    <string-array name="np_specialist_array">
+        <item>Internal Medicine subspecialty</item>
+        <item>Pediatrics subspecialty</item>
+        <item>Surgery or Surgery subspecialty</item>
+    </string-array>
+
+    <string-array name="empty_array">
+    </string-array>
+
     <string name="title_activity_enter_diagnosis">Enter Diagnosis</string>
     <string name="title_activity_preview">Preview Image</string>
     <string name="title_activity_view_only_disclaimer">ViewOnlyDisclaimerActivity</string>

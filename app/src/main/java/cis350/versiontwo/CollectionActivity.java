@@ -3,15 +3,9 @@ package cis350.versiontwo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.parse.FindCallback;
-import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.List;
 
 
 public class CollectionActivity extends ActionBarActivity {
@@ -20,33 +14,67 @@ public class CollectionActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
+
         ParseQuery<ParseObject> query = ParseQuery.getQuery
                 ("collectionImages");
         query.whereEqualTo("objectType", "image");
+        /*
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
+
                 if (e == null) {
+                    ImageView image = (ImageView) findViewById(R.id.image);
 
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "error retrieving images",
                             Toast.LENGTH_SHORT).show();
+                } */
+
+                /*
+                for(int i =0 ; i < objects.size(); i++){
+
+                    ParseObject object = objects.get(i);
+                    ParseFile fileObject = (ParseFile) object.get("imageFile");
+                    fileObject.getDataInBackground(new GetDataCallback() {
+                        public void done(byte[] data,ParseException e) {
+                            if (e == null) {
+
+                                Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+                                imgs[i].setImageBitmap(bmp);
+
+                            } else {
+                                Log.d("test",
+                                        "There was a problem downloading the data.");
+                            }
+                        }
+                    });
                 }
+                progressDialog.dismiss();
             }
         });
 
-        //starts here
-        /*
         ParseQuery query = new ParseQuery("imageCollection");
-        query.getInBackground("objectType",new GetCallback() {
+        query.getInBackground("objectType", new GetCallback() {
             @Override
-            public void done(ParseObject* object, ParseException e) {
-                if (object == null) {
+            public void done(ParseObject object, ParseException e) {
+                if (e == null) {
                     Log.d("test", "The object was not found...");
-                } else {
-                    Log.d("test", "Retrieved the object.");
                     ParseFile fileObject = (ParseFile)object.get("images");
+                    ParseImageView imageView = (ParseImageView) findViewById(android.R.id.icon);
+                    // The placeholder will be used before and during the fetch, to be replaced by the fetched image
+                    // data.
+                    imageView.setPlaceholder(getResources().getDrawable(R.drawable.placeholder));
+                    imageView.setParseFile(file);
+                    imageView.loadInBackground(new GetDataCallback() {
+                        @Override
+                        public void done(byte[] data, ParseException e) {
+                            Log.i("ParseImageView",
+                                    "Fetched! Data length: " + data.length + ", or exception: " + e.getMessage());
+                        }
+                    });
+                    /*
                     fileObject.getDataInBackground(new GetDataCallback() {
                         public void done(byte[] data, ParseException e) {
                             if (e == null) {
@@ -58,12 +86,15 @@ public class CollectionActivity extends ActionBarActivity {
                             }
                         }
                     });
+
+                } else {
+                    Log.d("error", "Error retrieving images");
+
                 }
             }
         });
-        */
-
         /*link: https://www.parse.com/questions/retrieve-image-from-parse */
+
     }
 
 
@@ -74,6 +105,7 @@ public class CollectionActivity extends ActionBarActivity {
         return true;
     }
 
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -88,4 +120,5 @@ public class CollectionActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    */
 }
