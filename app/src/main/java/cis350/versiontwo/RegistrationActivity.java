@@ -19,7 +19,7 @@ import com.parse.*;
 /**
  * Created by Sonia on 3/18/15.
  */
-public class RegistrationActivity extends ActionBarActivity implements View.OnClickListener {
+public class RegistrationActivity extends ActionBarActivity {
     Spinner genderSelection;
     Spinner practiceSettingSelection;
     Button register;
@@ -28,8 +28,6 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
-
 
         // Add gender information
         genderSelection = (Spinner) findViewById(R.id.gender_spinner);
@@ -64,9 +62,6 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
         final EditText name = (EditText) findViewById(R.id.name);
         final EditText year = (EditText) findViewById(R.id.yearBirth);
         final EditText password = (EditText) findViewById(R.id.passwordText);
-        final RadioGroup userkind = (RadioGroup) findViewById(R.id.user);
-        final RadioButton submission = (RadioButton) findViewById(R.id.submissionUser);
-        final RadioButton viewonly = (RadioButton) findViewById(R.id.viewUser);
 
         boolean allChecked = false;
 
@@ -87,14 +82,9 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                 String yearbirth = year.getText().toString();
                 String userpassword = password.getText().toString();
 
-                int submissionid = submission.getId();
-                int viewonlyid = viewonly.getId();
-
-                int choice = userkind.getCheckedRadioButtonId();
-
                 if ((gender == "") || (country == "") || (setting == "") || (username ==
                         "") || (fullname == "") || (yearbirth == "") || (userpassword ==
-                        "") || ((choice != submissionid) && (choice != viewonlyid))) {
+                        "")) {
                     Toast.makeText(getApplicationContext(), "Please fill out all fields",
                             Toast.LENGTH_SHORT).show();
                 } else {
@@ -111,12 +101,6 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                     newuser.put("Birthyear", yearbirth);
                     //newuser.put("Password", userpassword);
 
-                    if (submissionid == choice) {
-                        newuser.put("ID", "submission");
-                    }
-                    else  {//if (submissionid == choice) {
-                        newuser.put("ID", "viewonly");
-                    }
 
                     //newuser.saveInBackground();
 
@@ -133,32 +117,19 @@ public class RegistrationActivity extends ActionBarActivity implements View.OnCl
                         }
                     });
 
-                    Intent intent = new Intent(getApplicationContext(), DisclaimerActivity.class);
-                    startActivity(intent);
+                    if (practiceSettingSelection.getSelectedItem().toString().equals("Dermatologist")) {
+                        Intent intent = new Intent(getApplicationContext(), PracticeSettingActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), ViewOnlyPracticeSettingActivity.class);
+                        startActivity(intent);
+                    }
+
+
                 }
 
             }
         });
-
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        // Get the spinner selection
-        //int gender = genderSelection.getSelectedItemPosition();
-        RadioButton viewButton = (RadioButton) findViewById(R.id.viewUser);
-        RadioButton submissionButton = (RadioButton) findViewById(R.id.submissionUser);
-
-        if (viewButton.isChecked()) {
-            // TODO: EDIT THIS LATER
-            viewButton.setChecked(true);
-            submissionButton.setChecked(false);
-        } else {
-            // TODO: EDIT THIS LATER
-            submissionButton.setChecked(true);
-            viewButton.setChecked(false);
-        }
 
     }
 
