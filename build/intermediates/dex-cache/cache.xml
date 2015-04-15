@@ -2,6 +2,7 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
         jar="/Users/Stephanie/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -14,6 +15,27 @@
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
         <dex dex="/Users/Stephanie/cis350derm2/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-89038595d2b25b82c253f1a3dfc02c3b94481b47.jar" />
+=======
+        jar="/Users/Sonia/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-b437d4d59f8eb158f4cff9e0160dbb13a2fe053e.jar" />
+    </item>
+    <item
+        jar="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-bd0d0800095118a2b4a69e4a8202236fe667bc7e.jar" />
+    </item>
+    <item
+        jar="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/classes-3f516d8c2e9730d885d8734fef60abdb45adc662.jar" />
+>>>>>>> origin/master
     </item>
     <item
         jar="/Users/Stephanie/cis350derm2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
@@ -30,6 +52,7 @@
         <dex dex="/Users/Stephanie/cis350derm2/app/build/intermediates/pre-dexed/debug/classes-7bb591323532f87fdba0649133c2df7d9497ded6.jar" />
     </item>
     <item
+<<<<<<< HEAD
         jar="/Users/Stephanie/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -38,6 +61,9 @@
     </item>
     <item
         jar="/Users/Stephanie/cis350derm2/app/libs/Parse-1.9.0.jar"
+=======
+        jar="/Users/Sonia/Documents/cis350derm2/app/libs/Parse-1.9.0.jar"
+>>>>>>> origin/master
         jumboMode="false"
         revision="21.1.2"
         sha1="5811138d4e6cb9d45030e133ef1a61b935154c3a">

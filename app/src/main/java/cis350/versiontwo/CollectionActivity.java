@@ -1,23 +1,8 @@
 package cis350.versiontwo;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.parse.FindCallback;
-import com.parse.GetDataCallback;
-import com.parse.Parse;
-import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-
-import java.util.List;
 
 
 public class CollectionActivity extends ActionBarActivity {
@@ -26,55 +11,55 @@ public class CollectionActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
-
-        //Enable Parse
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
-
-
-        ParseQuery query = ParseQuery.getQuery
-                ("steph");
-        query.whereEqualTo("objectType", "image");
-
-        query.findInBackground(new FindCallback<ParseObject>() {
-
-            @Override
-            public void done(List<ParseObject> objects, ParseException e) {
-
-                if (e == null) {
-                    for (int i = 0; i < objects.size(); i++) {
-                        ParseObject object = objects.get(i);
-                        ParseFile fileObject = (ParseFile) object.get
-                                ("file");
-                        Toast.makeText(getApplicationContext(),
-                                "getting fileObjects",
-                                Toast.LENGTH_SHORT).show();
-                        fileObject.getDataInBackground(new GetDataCallback() {
-                            public void done(byte[] data, ParseException e) {
-                                if (e == null) {
-                                    ImageView imageView = (ImageView) findViewById(R.id.image);
-                                    Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
-                                    imageView.setImageBitmap(bmp);
-
-                                } else {
-                                    Log.d("test",
-                                            "There was a problem downloading the data.");
-                                }
-                            }
-                        });
-                    }
-                }
-
-                else{
-                    Toast.makeText(getApplicationContext(),
-                            "error retrieving images",
-                            Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        });
+//
+//        //Enable Parse
+//        Parse.enableLocalDatastore(getApplicationContext());
+//        Parse.initialize(getApplicationContext(),
+//                "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+//
+//        ParseQuery query = ParseQuery.getQuery
+//                ("steph");
+//        query.whereEqualTo("objectType", "image");
+//
+//        query.findInBackground(new FindCallback<ParseObject>() {
+//
+//            @Override
+//            public void done(List<ParseObject> objects, ParseException e) {
+//
+//                if (e == null) {
+//                    for (int i = 0; i < objects.size(); i++) {
+//                        ParseObject object = objects.get(i);
+//                        ParseFile fileObject = (ParseFile) object.get
+//                                ("file");
+//                        Toast.makeText(getApplicationContext(),
+//                                "getting fileObjects",
+//                                Toast.LENGTH_SHORT).show();
+//                        fileObject.getDataInBackground(new GetDataCallback() {
+//                            public void done(byte[] data, ParseException e) {
+//                                if (e == null) {
+//                                    ImageView imageView = (ImageView) findViewById(R.id.image);
+//                                    Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+//                                    imageView.setImageBitmap(bmp);
+//
+//                                } else {
+//                                    Log.d("test",
+//                                            "There was a problem downloading the data.");
+//                                }
+//                            }
+//                        });
+//                    }
+//                }
+//
+//                else{
+//                    Toast.makeText(getApplicationContext(),
+//                            "error retrieving images",
+//                            Toast.LENGTH_SHORT).show();
+//                }
+//
+//
+//            }
+//        });
 
     }
 

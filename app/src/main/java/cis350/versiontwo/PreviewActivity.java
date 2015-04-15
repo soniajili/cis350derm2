@@ -13,10 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -36,6 +39,10 @@ public class PreviewActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
+//        ParseObject.registerSubclass(ImageUpload.class);
+        Parse.enableLocalDatastore(getApplicationContext());
+        Parse.initialize(getApplicationContext(), "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         image = (ImageView) findViewById(R.id.image);
         diagnosisText = (TextView) findViewById(R.id.diagnosisText);
@@ -67,33 +74,48 @@ public class PreviewActivity extends ActionBarActivity {
             }
         });
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         submitButton = (Button) findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                ParseObject imageSubmission = new ParseObject("ImageUpload");
-                ParseFile imageFile = new ParseFile("img",
-                        convertImageToBytes(Uri.parse
-                                (uriString)));
-                imageFile.saveInBackground();
+                public void onClick(View v) {
 
-                imageSubmission.put("objectType", "image");
-                imageSubmission.put("diagnosis", diagnosis);
-                imageSubmission.put("file", imageFile);
-                imageSubmission.put("tags", tags);
-                imageSubmission.put("location", location);
-                imageSubmission.saveEventually();
+                final ParseObject imageSubmission = new ParseObject
+                    ("ImageUpload");
+                final ParseFile imageFile = new ParseFile("img",
+                convertImageToBytes(Uri.parse(uriString)));
+//                imageFile.saveInBackground();
+                imageFile.saveInBackground(new SaveCallback() {
 
-                Intent intent = new Intent(getApplicationContext(),
-                        CollectionActivity.class);
-                startActivity(intent);
+                @Override
+                public void done(ParseException e) {
+                    if (e == null) {
+                         imageSubmission.put("file", imageFile);
+                         imageSubmission.put("objectType", "image");
+                         imageSubmission.put("diagnosis", diagnosis);
+//                imageSubmission.put("file", imageFile);
+                         imageSubmission.put("tags", tags);
+                         imageSubmission.put("location", location);
 
-            }
-        });
+                         imageSubmission.saveInBackground();
+
+                     } else {
+                         Toast.makeText(getApplicationContext(), "Failed to save image",Toast.LENGTH_SHORT).show();
+
+                     }
+                  }
+                 } );
+
+
+                  Intent intent = new Intent(PreviewActivity.this,CollectionActivity.class);
+
+                                                //                Intent intent = new Intent(getApplicationContext(),
+//                        CollectionActivity.class);
+                  startActivity(intent);
+                                            }
+                                        }
+
+        );
 
 
     }
@@ -135,3 +157,4 @@ public class PreviewActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
