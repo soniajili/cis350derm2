@@ -15,8 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -71,25 +73,40 @@ public class PreviewActivity extends ActionBarActivity {
         Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
                 "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
+
         submitButton = (Button) findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseObject imageSubmission = new ParseObject("ImageUpload");
-                ParseFile imageFile = new ParseFile("img",
+
+                final ParseObject imageSubmission = new ParseObject
+                        ("ImageUpload");
+                final ParseFile imageFile = new ParseFile("img",
                         convertImageToBytes(Uri.parse
                                 (uriString)));
-                imageFile.saveInBackground();
+//                imageFile.saveInBackground();
+                imageFile.saveInBackground(new SaveCallback() {
 
-                imageSubmission.put("objectType", "image");
-                imageSubmission.put("diagnosis", diagnosis);
-                imageSubmission.put("file", imageFile);
-                imageSubmission.put("tags", tags);
-                imageSubmission.put("location", location);
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            imageSubmission.put("file", imageFile);
+                            imageSubmission.put("objectType", "image");
+                            imageSubmission.put("diagnosis", diagnosis);
+//                imageSubmission.put("file", imageFile);
+                            imageSubmission.put("tags", tags);
+                            imageSubmission.put("location", location);
+
+                        }
+
+                    }
+                });
+
                 imageSubmission.saveEventually();
-
-                Intent intent = new Intent(getApplicationContext(),
+                Intent intent = new Intent(PreviewActivity.this,
                         CollectionActivity.class);
+//                Intent intent = new Intent(getApplicationContext(),
+//                        CollectionActivity.class);
                 startActivity(intent);
 
             }

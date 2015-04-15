@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -52,16 +53,16 @@ public class RegistrationActivity extends ActionBarActivity {
         practiceSettingSelection.setAdapter(settingAdapter);
 
         // Enable Local Datastore.
+        ParseObject.registerSubclass(ParseUser.class);
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
                 "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
+        register = (Button) findViewById(R.id.registerButton);
         final EditText email = (EditText) findViewById(R.id.emailLabel);
         final EditText name = (EditText) findViewById(R.id.name);
         final EditText year = (EditText) findViewById(R.id.yearBirth);
         final EditText password = (EditText) findViewById(R.id.passwordText);
-
-        boolean allChecked = false;
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,22 +91,34 @@ public class RegistrationActivity extends ActionBarActivity {
 
                     newuser.setUsername(username);
                     newuser.setPassword(userpassword);
-                    newuser.setEmail(username);
+                    //newuser.setEmail(username);
 
                     newuser.put("Gender", gender);
                     newuser.put("Country", country); //TODO: ASK ABOUT RETRIEVING COUNTRY INFO
                     newuser.put("Setting", setting);
                     newuser.put("Name", fullname);
                     newuser.put("Birthyear", yearbirth);
-                    //newuser.put("Password", userpassword);
-
 
                     //newuser.saveInBackground();
 
                     newuser.signUpInBackground(new SignUpCallback() {
+                        @Override
                         public void done(ParseException e) {
                             if (e == null) {
-                                // Hooray! Let them use the app now.
+                                Intent intent;
+                                if (practiceSettingSelection.getSelectedItem().toString().equals("Dermatologist")) {
+//                                    intent = new Intent(getApplicationContext(), PracticeSettingActivity.class);
+                                    intent = new Intent(RegistrationActivity
+                                            .this,
+                                            PracticeSettingActivity.class);
+                                } else {
+//                                    intent = new Intent(getApplicationContext(), ViewOnlyPracticeSettingActivity.class);
+                                    intent = new Intent(RegistrationActivity
+                                            .this,
+                                            PracticeSettingActivity.class);
+                                }
+
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Registration failed.",
                                         Toast.LENGTH_SHORT).show();
@@ -114,16 +127,6 @@ public class RegistrationActivity extends ActionBarActivity {
                             }
                         }
                     });
-
-                    if (practiceSettingSelection.getSelectedItem().toString().equals("Dermatologist")) {
-                        Intent intent = new Intent(getApplicationContext(), PracticeSettingActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Intent intent = new Intent(getApplicationContext(), ViewOnlyPracticeSettingActivity.class);
-                        startActivity(intent);
-                    }
-
-
                 }
 
             }
