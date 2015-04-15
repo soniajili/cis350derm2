@@ -100,7 +100,7 @@ public class PreviewActivity extends ActionBarActivity {
                          imageSubmission.saveInBackground();
 
                          Intent intent = new Intent(PreviewActivity.this,
-                                HomeActivity.class);
+                                CollectionActivity.class);
                         startActivity(intent);
 
                      } else {
