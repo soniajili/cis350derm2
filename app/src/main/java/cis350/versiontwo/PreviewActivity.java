@@ -75,13 +75,14 @@ public class PreviewActivity extends ActionBarActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseObject imageSubmission = new ParseObject(diagnosis);
+                ParseObject imageSubmission = new ParseObject("ImageUpload");
                 ParseFile imageFile = new ParseFile("img",
                         convertImageToBytes(Uri.parse
                                 (uriString)));
                 imageFile.saveInBackground();
 
                 imageSubmission.put("objectType", "image");
+                imageSubmission.put("diagnosis", diagnosis);
                 imageSubmission.put("file", imageFile);
                 imageSubmission.put("tags", tags);
                 imageSubmission.put("location", location);

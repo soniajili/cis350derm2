@@ -53,10 +53,6 @@
         </activity>
 />
         <activity
-            android:name=".EnterDiagnosis"
-            android:label="@string/title_activity_enter_diagnosis" >
-        </activity>
-        <activity
             android:name=".EnterDiagnosisActivity"
             android:label="@string/title_activity_enter_diagnosis" >
         </activity>

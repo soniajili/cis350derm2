@@ -33,8 +33,8 @@ public class CollectionActivity extends ActionBarActivity {
                 "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery
-                ("collectionImages");
+        ParseQuery query = ParseQuery.getQuery
+                ("steph");
         query.whereEqualTo("objectType", "image");
 
         query.findInBackground(new FindCallback<ParseObject>() {
