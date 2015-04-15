@@ -99,6 +99,10 @@ public class PreviewActivity extends ActionBarActivity {
 
                          imageSubmission.saveInBackground();
 
+                         Intent intent = new Intent(PreviewActivity.this,
+                                HomeActivity.class);
+                        startActivity(intent);
+
                      } else {
                          Toast.makeText(getApplicationContext(), "Failed to save image",Toast.LENGTH_SHORT).show();
 
@@ -107,11 +111,12 @@ public class PreviewActivity extends ActionBarActivity {
                  } );
 
 
-                  Intent intent = new Intent(PreviewActivity.this,CollectionActivity.class);
+//                  Intent intent = new Intent(PreviewActivity.this,
+//                          CollectionActivity.class);
 
                                                 //                Intent intent = new Intent(getApplicationContext(),
 //                        CollectionActivity.class);
-                  startActivity(intent);
+//                  startActivity(intent);
                                             }
                                         }
 
