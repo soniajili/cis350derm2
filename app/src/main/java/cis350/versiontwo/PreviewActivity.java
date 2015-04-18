@@ -35,13 +35,16 @@ public class PreviewActivity extends ActionBarActivity {
     Button editButton;
     Button submitButton;
 
+    /** Display page initially */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
-//        ParseObject.registerSubclass(ImageUpload.class);
+
+        // Enable Parse
         Parse.enableLocalDatastore(getApplicationContext());
-        Parse.initialize(getApplicationContext(), "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+        Parse.initialize(getApplicationContext(),
+                "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
                 "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         image = (ImageView) findViewById(R.id.image);
@@ -78,13 +81,13 @@ public class PreviewActivity extends ActionBarActivity {
         submitButton = (Button) findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
+                // upload image and data when submit button is clicked
                 public void onClick(View v) {
 
                 final ParseObject imageSubmission = new ParseObject
                     ("ImageUpload");
                 final ParseFile imageFile = new ParseFile("img",
                 convertImageToBytes(Uri.parse(uriString)));
-//                imageFile.saveInBackground();
                 imageFile.saveInBackground(new SaveCallback() {
 
                 @Override
@@ -93,7 +96,6 @@ public class PreviewActivity extends ActionBarActivity {
                          imageSubmission.put("file", imageFile);
                          imageSubmission.put("objectType", "image");
                          imageSubmission.put("diagnosis", diagnosis);
-//                imageSubmission.put("file", imageFile);
                          imageSubmission.put("tags", tags);
                          imageSubmission.put("location", location);
 
@@ -104,27 +106,18 @@ public class PreviewActivity extends ActionBarActivity {
                         startActivity(intent);
 
                      } else {
-                         Toast.makeText(getApplicationContext(), "Failed to save image",Toast.LENGTH_SHORT).show();
+                         Toast.makeText(getApplicationContext(),
+                                 "Failed to save image",
+                                 Toast.LENGTH_SHORT).show();
 
                      }
-                  }
-                 } );
-
-
-//                  Intent intent = new Intent(PreviewActivity.this,
-//                          CollectionActivity.class);
-
-                                                //                Intent intent = new Intent(getApplicationContext(),
-//                        CollectionActivity.class);
-//                  startActivity(intent);
-                                            }
-                                        }
-
-        );
-
-
+                }
+                });
+            }
+        });
     }
 
+    /** change image format from Uri to Bytes */
     private byte[] convertImageToBytes(Uri uri) {
         byte[] data = null;
         try {
@@ -140,21 +133,19 @@ public class PreviewActivity extends ActionBarActivity {
         return data;
     }
 
+    /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu_preview, menu);
         return true;
     }
 
+    /** Handle action bar item clicks here */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

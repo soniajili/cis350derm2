@@ -1,12 +1,8 @@
 package cis350.versiontwo;
 
-import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -30,12 +25,12 @@ public class SubmitActivity extends ActionBarActivity {
 
     ImageButton cameraButton;
     ImageButton galleryButton;
-    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    private static final int CHOOSE_IMAGE_ACTIVITY_REQUEST_CODE = 101;
-    public static final int MEDIA_TYPE_IMAGE = 1;
+    private static final int captureImageRequestCode = 100;
+    private static final int chooseImageRequestCode = 101;
+    public static final int mediaTypeImage = 1;
     private Uri fileUri;
-    String imgDecodableString;
 
+    /** Display page initially */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +39,13 @@ public class SubmitActivity extends ActionBarActivity {
         cameraButton = (ImageButton) findViewById(R.id.cameraButton);
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
+            // handle behavior when user clicks camera button
             public void onClick(View v) {
                 if (hasCamera()) {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
+                    fileUri = getOutputMediaFileUri(mediaTypeImage); // create a file to save the image
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-                    startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+                    startActivityForResult(intent, captureImageRequestCode);
                 } else {
                     String temp = "No camera available. Please select from gallery.";
                     Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_LONG).show();
@@ -63,23 +59,22 @@ public class SubmitActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, CHOOSE_IMAGE_ACTIVITY_REQUEST_CODE);
+                startActivityForResult(intent, chooseImageRequestCode);
             }
         });
     }
 
+    /** Go to Enter Diagnosis page after capture image */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == CHOOSE_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK &&
+        if (requestCode == chooseImageRequestCode && resultCode == RESULT_OK &&
                 data != null && data.getData() != null) {
 
             Uri uri = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                // Log.d(TAG, String.valueOf(bitmap));
-
                 Intent intent = new Intent(getApplicationContext(), EnterDiagnosisActivity.class);
                 intent.putExtra("URI", uri);
                 startActivity(intent);
@@ -90,17 +85,16 @@ public class SubmitActivity extends ActionBarActivity {
         }
     }
 
-
+    /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_submit, menu);
         return true;
     }
 
+    /** Handle behaviors when menu item is selected */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
             case R.id.homePage:
                 goHome();
@@ -113,16 +107,14 @@ public class SubmitActivity extends ActionBarActivity {
         }
     }
 
-    /** MAKE SURE TO USE IF STATEMENT TO DECIDE WHICH HOME PAGE TO GO TO */
+    /** Go to home page */
     private void goHome() {
-        /*
-        setContentView(R.layout.activity_home);*/
         Intent intent = new Intent(getApplicationContext(), cis350.versiontwo.HomeActivity.class);
         startActivity(intent);
     }
 
+    /** Go to search page */
     private void goToSearch() {
-      //  setContentView(R.layout.activity_search);
         Intent intent = new Intent(getApplicationContext(), cis350.versiontwo.SearchActivity.class);
         startActivity(intent);
     }
@@ -136,7 +128,7 @@ public class SubmitActivity extends ActionBarActivity {
         }
     }
 
-    // The following methods are taken from developer.android.com
+    // Parts of the following methods are taken from developer.android.com
     /** Create a file Uri for saving an image or video */
     private static Uri getOutputMediaFileUri(int type){
         return Uri.fromFile(getOutputMediaFile(type));
@@ -144,13 +136,9 @@ public class SubmitActivity extends ActionBarActivity {
 
     /** Create a File for saving an image or video */
     private static File getOutputMediaFile(int type){
-        // To be safe, you should check that the SDCard is mounted
-        // using Environment.getExternalStorageState() before doing this.
-
+        // Check that the SDCard is mounted
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), "MyCameraApp");
-        // This location works best if you want the created images to be shared
-        // between applications and persist after your app has been uninstalled.
 
         // Create the storage directory if it does not exist
         if (! mediaStorageDir.exists()){
@@ -163,7 +151,7 @@ public class SubmitActivity extends ActionBarActivity {
         // Create a media file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE){
+        if (type == mediaTypeImage){
             mediaFile = new File(mediaStorageDir.getPath() + File.separator +
                     "IMG_"+ timeStamp + ".jpg");
         } else {
@@ -172,20 +160,4 @@ public class SubmitActivity extends ActionBarActivity {
 
         return mediaFile;
     }
-/*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                // Image captured and saved to fileUri specified in the Intent
-                Toast.makeText(this, "Image saved to:\n" +
-                        data.getData(), Toast.LENGTH_LONG).show();
-            } else if (resultCode == RESULT_CANCELED) {
-                // User cancelled the image capture
-            } else {
-                // Image capture failed, advise user
-            }
-        }
-    }*/
-
 }

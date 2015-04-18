@@ -15,6 +15,7 @@ public class PracticeSettingActivity extends ActionBarActivity {
     Spinner practiceSettingSpinner;
     Button proceedButton;
 
+    /** Display page initially */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,32 +30,27 @@ public class PracticeSettingActivity extends ActionBarActivity {
 
         proceedButton = (Button) findViewById(R.id.proceed_button);
         proceedButton.setOnClickListener(new View.OnClickListener() {
+            // Go to Disclaimer
             @Override
-            public void onClick(View v) {
-                // Save the practice setting that was selected as a sTring
-                final String pracSetting = practiceSettingSpinner.getSelectedItem().toString();
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), DisclaimerActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-
+    /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_practice_setting, menu);
         return true;
     }
 
+    /** Handle action bar item clicks here */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

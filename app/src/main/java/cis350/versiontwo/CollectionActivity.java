@@ -28,33 +28,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class CollectionActivity extends ActionBarActivity {
     GridView gridView;
     List<ParseObject> obj;
     ArrayList<String> imageArrayList;
     ImageAdapter adapter;
 
+    /** Display the page initially */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
-//        Parse.enableLocalDatastore(getApplicationContext());
-//        Parse.initialize(getApplicationContext(), "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         new RemoteDataTask().execute();
     }
-
+    /**  perform background operations and publish results on the UI thread */
     class RemoteDataTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
 
+        /** get image data */
         @Override
         protected Void doInBackground(Void... params) {
             imageArrayList = new ArrayList<String>();
@@ -77,6 +75,7 @@ public class CollectionActivity extends ActionBarActivity {
             return null;
         }
 
+        /** sets up grid */
         @Override
         protected void onPostExecute(Void result) {
             gridView = (GridView) findViewById(R.id.grid_view);
@@ -84,143 +83,15 @@ public class CollectionActivity extends ActionBarActivity {
             gridView.setAdapter(adapter);
         }
     }
-        /*
-        //Enable Parse
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
-        ParseQuery query = ParseQuery.getQuery("steph");
-      //  query.whereEqualTo("objectType", "image");
-
-        query.findInBackground(new FindCallback<ParseObject>() {
-
-            @Override
-            public void done(List<ParseObject> objects, ParseException e) {
-
-                if (e == null) {
-                    for (int i = 0; i < objects.size(); i++) {
-                        ParseObject object = objects.get(i);
-                        ParseFile fileObject = (ParseFile) object.get("file");
-                        Toast.makeText(getApplicationContext(),
-                                "getting fileObjects",
-                                Toast.LENGTH_SHORT).show();
-                        fileObject.getDataInBackground(new GetDataCallback() {
-                            public void done(byte[] data, ParseException e) {
-                                if (e == null) {
-                                    ImageView imageView = (ImageView) findViewById(R.id.image);
-                                    Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
-                                    imageView.setImageBitmap(bmp);
-
-                                } else {
-                                    Log.d("test",
-                                            "There was a problem downloading the data.");
-                                }
-                            }
-                        });
-                    }
-                }
-
-                else{
-                    Toast.makeText(getApplicationContext(),
-                            "error retrieving images",
-                            Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        });
-=======
-//
-//        //Enable Parse
-//        Parse.enableLocalDatastore(getApplicationContext());
-//        Parse.initialize(getApplicationContext(),
-//                "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
-//
-//        ParseQuery query = ParseQuery.getQuery
-//                ("steph");
-//        query.whereEqualTo("objectType", "image");
-//
-//        query.findInBackground(new FindCallback<ParseObject>() {
-//
-//            @Override
-//            public void done(List<ParseObject> objects, ParseException e) {
-//
-//                if (e == null) {
-//                    for (int i = 0; i < objects.size(); i++) {
-//                        ParseObject object = objects.get(i);
-//                        ParseFile fileObject = (ParseFile) object.get
-//                                ("file");
-//                        Toast.makeText(getApplicationContext(),
-//                                "getting fileObjects",
-//                                Toast.LENGTH_SHORT).show();
-//                        fileObject.getDataInBackground(new GetDataCallback() {
-//                            public void done(byte[] data, ParseException e) {
-//                                if (e == null) {
-//                                    ImageView imageView = (ImageView) findViewById(R.id.image);
-//                                    Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
-//                                    imageView.setImageBitmap(bmp);
-//
-//                                } else {
-//                                    Log.d("test",
-//                                            "There was a problem downloading the data.");
-//                                }
-//                            }
-//                        });
-//                    }
-//                }
-//
-//                else{
-//                    Toast.makeText(getApplicationContext(),
-//                            "error retrieving images",
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//
-//
-//            }
-//        });
->>>>>>> origin/master
-
-
-        GridView gridview = (GridView) findViewById(R.id.grid_view);
-        gridview.setAdapter(new ImageAdapter(this));
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(CollectionActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-*/
-
+    /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_collection, menu);
         return true;
     }
 
-    /*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    */
-
+    /** set up ImageAdapter which helps display the image */
     class ImageAdapter extends BaseAdapter {
         private Context context;
         ArrayList<String> imageArrayList;
@@ -230,68 +101,52 @@ public class CollectionActivity extends ActionBarActivity {
             imageArrayList = imageArray;
         }
 
+        /** get the number of images to be displayed */
         public int getCount() {
             return imageArrayList.size();
         }
 
+        /** get the item to be displayed */
         public Object getItem(int position) {
             return imageArrayList.get(position);
         }
 
+        /** get item's position */
         public long getItemId(int position) {
             return position;
         }
 
-        // create a new ImageView for each item referenced by the Adapter
+        /** create a new ImageView for each item referenced by the Adapter */
         public View getView(int position, View view, ViewGroup parent) {
             Log.d("ArrayList size: ", Integer.toString(imageArrayList.size()));
             View row = view;
-            ViewHolder holder = null;
+            ViewHolder holder;
 
             if (row == null) {
-                Log.d("Made it to: ", "row is null (a)");
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                Log.d("Made it to: ", "we did the inflater crap (b)");
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context
+                        .LAYOUT_INFLATER_SERVICE);
                 row = inflater.inflate(R.layout.gridview_item, parent, false);
-                Log.d("Made it to: ", "we did more inflater crap (c)");
                 holder = new ViewHolder(row);
-                Log.d("Made it to: ", "we did something with the holder (d)");
                 row.setTag(holder);
 
             } else {
-                Log.d("Made it to: ", "row wasn't null????");
                 holder = (ViewHolder) row.getTag();
 
 
             }
             try {
-               /* URL url = new URL(imageArrayList.get(position));
-                Log.d("Made it to: ", "got the URL (1)");
-                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                Log.d("Made it to: ", "got the bitmap (2)");*/
                 InputStream in = new URL(imageArrayList.get(position)).openStream();
                 Bitmap bmp = BitmapFactory.decodeStream(in);
                 holder.image.setImageBitmap(bmp);
-                Log.d("Made it to: ", "SET THE DAMN IMAGE (3)");
             } catch (Exception e) {
-                Log.d("Made it to: ", "EXCEPTIONNNN");
                 e.printStackTrace();
             }
-            /*try {
-                Log.d("Made it to: ", "entered Try statement (1)");
-                InputStream in = (InputStream) new URL(imageArrayList.get(position)).getContent();
-                Log.d("Made it to: ", "input stream bullshit (2)");
-                Drawable d = Drawable.createFromStream(in, "");
-                Log.d("Made it to: ", "Drawable.create... (3)");
-                holder.image.setImageDrawable(d);
-            } catch (Exception e) {
-                Log.d("Made it to: ", "EXCEPTION (4)");
-                return null;
-            }*/
+
             return row;
         }
     }
 
+    /** place image */
     class ViewHolder {
         ImageView image;
         ViewHolder(View v) {

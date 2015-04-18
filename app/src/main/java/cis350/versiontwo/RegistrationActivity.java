@@ -17,9 +17,6 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-/**
- * Created by Sonia on 3/18/15.
- */
 public class RegistrationActivity extends ActionBarActivity {
     Spinner genderSelection;
     Spinner practiceSettingSelection;
@@ -38,8 +35,8 @@ public class RegistrationActivity extends ActionBarActivity {
         genderSelection.setAdapter(genderAdapter);
 
         // Add country information
-        // TODO: Ensure that final doesn't limit the capabilities of textView
-        final AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.autocomplete_country);
+        final AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id
+                .autocomplete_country);
         String[] countries = getResources().getStringArray(R.array.country_array);
         ArrayAdapter<String> countryAdapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
@@ -68,11 +65,6 @@ public class RegistrationActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-
-//                ParseObject testObject = new ParseObject("TestObject");
-//                testObject.put("foo", "bar");
-//                testObject.saveInBackground();
-
                 String gender = genderSelection.getSelectedItem().toString();
                 String country = textView.getText().toString();
                 String setting = practiceSettingSelection.getSelectedItem().toString();
@@ -87,43 +79,43 @@ public class RegistrationActivity extends ActionBarActivity {
                     Toast.makeText(getApplicationContext(), "Please fill out all fields",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    ParseUser newuser = new ParseUser(); // TODO: FIGURE OUT OBJECT NAMES
+                    ParseUser newuser = new ParseUser();
 
                     newuser.setUsername(username);
                     newuser.setPassword(userpassword);
-                    //newuser.setEmail(username);
 
                     newuser.put("Gender", gender);
-                    newuser.put("Country", country); //TODO: ASK ABOUT RETRIEVING COUNTRY INFO
+                    newuser.put("Country", country);
                     newuser.put("Setting", setting);
                     newuser.put("Name", fullname);
                     newuser.put("Birthyear", yearbirth);
 
-                    //newuser.saveInBackground();
 
                     newuser.signUpInBackground(new SignUpCallback() {
                         @Override
                         public void done(ParseException e) {
                             if (e == null) {
+                                // Sign up succeeded. Proceed to Practice
+                                // Settings
                                 Intent intent;
-                                if (practiceSettingSelection.getSelectedItem().toString().equals("Dermatologist")) {
-//                                    intent = new Intent(getApplicationContext(), PracticeSettingActivity.class);
+                                if (practiceSettingSelection.getSelectedItem().toString().equals
+                                        ("Dermatologist")) {
                                     intent = new Intent(RegistrationActivity
                                             .this,
                                             PracticeSettingActivity.class);
                                 } else {
-//                                    intent = new Intent(getApplicationContext(), ViewOnlyPracticeSettingActivity.class);
                                     intent = new Intent(RegistrationActivity
                                             .this,
-                                            PracticeSettingActivity.class);
+                                            ViewOnlyPracticeSettingActivity
+                                                    .class);
                                 }
 
                                 startActivity(intent);
                             } else {
+                                // Sign up didn't succeed.
                                 Toast.makeText(getApplicationContext(), "Registration failed.",
                                         Toast.LENGTH_SHORT).show();
-                                // Sign up didn't succeed. Look at the ParseException
-                                // to figure out what went wrong
+
                             }
                         }
                     });

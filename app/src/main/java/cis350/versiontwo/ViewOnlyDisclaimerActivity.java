@@ -6,22 +6,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 
 
 public class ViewOnlyDisclaimerActivity extends ActionBarActivity {
 
-    CheckBox checkbox;
-    OnClickListener checkBoxListener;
+    CheckBox checkboxDisclaimer;
     Button disclaimerButton;
 
+    /** Display page initially */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disclaimer);
-        checkbox = (CheckBox) findViewById(R.id.disclaimerCheckBox);
+        checkboxDisclaimer = (CheckBox) findViewById(R.id.disclaimerCheckBox);
         disclaimerButton = (Button) findViewById(R.id.disclaimerButton);
         disclaimerButton.setEnabled(false);
         disclaimerButton.setOnClickListener(new View.OnClickListener() {
@@ -33,22 +32,18 @@ public class ViewOnlyDisclaimerActivity extends ActionBarActivity {
         });
     }
 
-
+    /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_disclaimer, menu);
         return true;
     }
 
+    /** Handle action bar item clicks here */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -56,10 +51,10 @@ public class ViewOnlyDisclaimerActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /** Handle behavior based on disclaimer checkbox */
     public void onCheckboxClicked(View view) {
-        boolean checked = ((CheckBox) view).isChecked();
 
-        if (checkbox.isChecked()) {
+        if (checkboxDisclaimer.isChecked()) {
             disclaimerButton.setEnabled(true);
         } else {
             disclaimerButton.setEnabled(false);

@@ -407,4 +407,5 @@
     <string name="title_activity_practice_setting">Practice Settings</string>
     <string name="title_activity_view_only_practice_setting">Practice Settings
     </string>
+    <string name="title_activity_get_image">Get Image</string>
 </resources>

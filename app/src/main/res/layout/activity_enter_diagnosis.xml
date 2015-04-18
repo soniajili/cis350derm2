@@ -1,10 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context="cis350.versiontwo.EnterDiagnosisActivity">
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -13,77 +16,77 @@
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
-                      android:orientation="vertical" >
+                      android:orientation="vertical">
 
-            <!-- Image
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="200dp"
-                android:id="@+id/imageView" /> -->
 
             <ImageButton
+                android:id="@+id/reselectPhoto"
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
-                android:id="@+id/reselectPhoto"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitCenter"/>
 
             <!-- Diagnosis Label -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:text="Diagnosis"
                 android:textColor="#000000"
-                android:text="Diagnosis"/>
+                android:textSize="20dp"/>
+
             <EditText
                 android:id="@+id/diagnosis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
                 android:background="#F8F8FF"
+                android:textSize="15dp"
                 />
 
             <!-- Enter Tags Label -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textColor="#000000"
                 android:text="Enter Tags"
+                android:textColor="#000000"
+                android:textSize="20dp"
                 />
+
             <EditText
                 android:id="@+id/tags"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
                 android:background="#F8F8FF"
-                android:hint="What features of this photo help support this diagnosis? Enter keywords separated by commas."
+                android:hint="What features of this photo help support this diagnosis? Enter keywords
+                separated by commas."
+                android:textSize="15dp"
                 />
 
             <!-- Location Label -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:text="Location on Body"
                 android:textColor="#000000"
-                android:text="Location on Body"/>
+                android:textSize="20dp"/>
+
             <Spinner
                 android:id="@+id/location_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F8F8FF"
-                android:textSize="15dp"
                 android:layout_gravity="center_horizontal"
+                android:background="#F8F8FF"
                 android:text="Select from menu"
+                android:textSize="15dp"
                 />
+
             <Button
+                android:id="@+id/previewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Preview Submission"
-                android:id="@+id/previewButton"
                 android:layout_alignBottom="@+id/scrollView"
                 android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:text="Preview Submission"/>
 
         </LinearLayout>
     </ScrollView>

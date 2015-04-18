@@ -2,8 +2,8 @@ package cis350.versiontwo;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
-
-import com.parse.Parse;
 
 
 public class EnterDiagnosisActivity extends ActionBarActivity {
@@ -23,6 +19,7 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
     Button previewButton;
     ImageButton image;
 
+    /** Display page initially */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +47,6 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
 
         previewButton = (Button) findViewById(R.id.previewButton);
 
-        // TODO: Enable Local Datastore.
-       /* Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");*/
-
         // Get user data
         final EditText diagnosis = (EditText) findViewById(R.id.diagnosis);
         final EditText tags = (EditText) findViewById(R.id.tags);
@@ -75,22 +67,19 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
         });
     }
 
-
+    /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_enter_diagnosis, menu);
         return true;
     }
 
+    /** Handle action bar item clicks here */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }

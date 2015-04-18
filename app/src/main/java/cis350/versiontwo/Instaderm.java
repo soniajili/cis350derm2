@@ -6,12 +6,10 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-/**
-* Created by Sonia on 4/14/15.
-*/
 
 public class Instaderm extends android.app.Application {
 
+    /** Enable Parse on all app pages */
     protected void onCreate(Bundle savedInstanceState) {
         ParseObject.registerSubclass(ParseUser.class);
         Parse.enableLocalDatastore(this);

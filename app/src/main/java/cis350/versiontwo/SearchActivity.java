@@ -9,28 +9,25 @@ import android.view.MenuItem;
 
 public class SearchActivity extends ActionBarActivity {
 
+    /** Display page initially */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
     }
 
-
+    /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_search, menu);
         return true;
     }
 
+    /** Handle action bar item clicks here */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.homePage) {
             goHome();
             return true;
@@ -39,6 +36,8 @@ public class SearchActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /** Go to home page */
     private void goHome() {
         Intent intent = new Intent(getApplicationContext(), cis350.versiontwo.HomeActivity.class);
         startActivity(intent);
