@@ -93,6 +93,7 @@ public class PreviewActivity extends ActionBarActivity {
                 @Override
                 public void done(ParseException e) {
                     if (e == null) {
+
                          imageSubmission.put("file", imageFile);
                          imageSubmission.put("objectType", "image");
                          imageSubmission.put("diagnosis", diagnosis);

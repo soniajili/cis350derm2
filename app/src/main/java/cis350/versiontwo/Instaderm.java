@@ -1,5 +1,6 @@
 package cis350.versiontwo;
 
+import android.app.Application;
 import android.os.Bundle;
 
 import com.parse.Parse;
@@ -7,7 +8,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 
-public class Instaderm extends android.app.Application {
+public class Instaderm extends Application {
 
     /** Enable Parse on all app pages */
     protected void onCreate(Bundle savedInstanceState) {

@@ -73,9 +73,9 @@ public class RegistrationActivity extends ActionBarActivity {
                 String yearbirth = year.getText().toString();
                 String userpassword = password.getText().toString();
 
-                if ((gender == "") || (country == "") || (setting == "") || (username ==
-                        "") || (fullname == "") || (yearbirth == "") || (userpassword ==
-                        "")) {
+                if ((gender.isEmpty()) || (country.isEmpty()) || (setting
+                        .isEmpty()) || (username.isEmpty()) || (fullname.isEmpty()) ||
+                        (yearbirth.isEmpty()) || (userpassword.isEmpty())) {
                     Toast.makeText(getApplicationContext(), "Please fill out all fields",
                             Toast.LENGTH_SHORT).show();
                 } else {

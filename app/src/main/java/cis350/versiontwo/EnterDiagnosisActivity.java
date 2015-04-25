@@ -57,6 +57,7 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
                 String diagnosisText = diagnosis.getText().toString();
 
                 String tagText = tags.getText().toString();
+
                 Intent intent = new Intent(getApplicationContext(), PreviewActivity.class);
                 intent.putExtra("diagnosis", diagnosisText);
                 intent.putExtra("tags", tagText);
