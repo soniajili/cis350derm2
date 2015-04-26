@@ -81,8 +81,9 @@ public class SearchResultsActivity extends ActionBarActivity {
                     ParseFile image = null;
                     String diagnosis = (String) o.get("diagnosis");
 
-                    if (diagnosis == searchTerm) {
+                    if (searchTerm.equalsIgnoreCase(diagnosis)) {
                         image = (ParseFile) o.get("file");
+                        Log.d("diagnosisLog", "diagnosis:" + diagnosis);
                     } else {
                         String tagText = (String) o.get("tags");
                         String[] tagArray;
@@ -94,7 +95,7 @@ public class SearchResultsActivity extends ActionBarActivity {
 
                         for (String tag : tagArray) {
                             Log.d("tag", "tag: " + tag);
-                            if (tag == searchTerm) {
+                            if (tag.equalsIgnoreCase(searchTerm)) {
                                 image = (ParseFile) o.get("file");
                             }
                         }
@@ -123,7 +124,7 @@ public class SearchResultsActivity extends ActionBarActivity {
     /** Inflate the menu; this adds items to the action bar if it is present */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_collection, menu);
+        getMenuInflater().inflate(R.menu.menu_search_results, menu);
         return true;
     }
 
