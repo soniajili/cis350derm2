@@ -30,18 +30,18 @@
         <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\classes-e06e3dc355411f34588849f82d00f68b99c67a63.jar" />
     </item>
     <item
-        jar="C:\Users\Anna Yang\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-fbf12e16062ba2486eeafae4fbf6fa28cb511f08.jar" />
-    </item>
-    <item
         jar="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\libs\Parse-1.9.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="5811138d4e6cb9d45030e133ef1a61b935154c3a">
         <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\Parse-1.9.0-9918b42ff8bf6f26e3c53c2271323806f119a285.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anna Yang\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-fbf12e16062ba2486eeafae4fbf6fa28cb511f08.jar" />
     </item>
 
 </items>
