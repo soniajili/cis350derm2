@@ -2,6 +2,7 @@ package cis350.versiontwo;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -84,11 +86,23 @@ public class CollectionActivity extends ActionBarActivity {
         }
     }
 
-    /** Inflate the menu; this adds items to the action bar if it is present */
+    /** Handle action bar item clicks here */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_collection, menu);
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.homePage) {
+            goHome();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /** Go to home page */
+    private void goHome() {
+        Intent intent = new Intent(getApplicationContext(), cis350.versiontwo.HomeActivity.class);
+        startActivity(intent);
     }
 
     /** set up ImageAdapter which helps display the image */

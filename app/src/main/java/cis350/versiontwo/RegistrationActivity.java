@@ -50,10 +50,10 @@ public class RegistrationActivity extends ActionBarActivity {
         practiceSettingSelection.setAdapter(settingAdapter);
 
         // Enable Local Datastore.
-        ParseObject.registerSubclass(ParseUser.class);
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+//        ParseObject.registerSubclass(ParseUser.class);
+//        Parse.enableLocalDatastore(this);
+//        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         register = (Button) findViewById(R.id.registerButton);
         final EditText email = (EditText) findViewById(R.id.emailLabel);
