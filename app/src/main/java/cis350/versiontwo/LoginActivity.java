@@ -18,6 +18,7 @@ import com.parse.ParseUser;
 public class LoginActivity extends ActionBarActivity {
 
     Button signInButton;
+    Button registerButton;
 
     /** Display page initially */
     @Override
@@ -26,6 +27,7 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
 
         signInButton = (Button) findViewById(R.id.signInButton);
+        registerButton = (Button) findViewById(R.id.registerButton);
         final EditText emailText = (EditText) findViewById(R.id.emailText);
         final EditText passwordText = (EditText) findViewById(R.id.passwordText);
 
@@ -33,6 +35,14 @@ public class LoginActivity extends ActionBarActivity {
 //        Parse.enableLocalDatastore(this);
 //        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
 //                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             // Sign in when sign in button is clicked

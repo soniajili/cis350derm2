@@ -29,10 +29,10 @@ public class SearchActivity extends ActionBarActivity {
 //
 //                query.whereEqualTo("diagnosis", termToSearch);
 
-                Intent intent = new Intent(getApplicationContext(),
+              /*  Intent intent = new Intent(getApplicationContext(),
                         SearchResultsActivity.class);
                 intent.putExtra("searchTerm", searchTerm);
-                startActivity(intent);
+                startActivity(intent);*/
             }
         });
     }
