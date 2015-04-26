@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.util.Pair;
 
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -32,7 +33,7 @@ import java.util.List;
 public class SearchResultsActivity extends ActionBarActivity {
     GridView gridView;
     List<ParseObject> obj;
-    ArrayList<String> imageArrayList;
+    ArrayList<Pair<String, ParseObject>> imageArrayList;
     ImageAdapter adapter;
     String searchTerm;
 
@@ -65,13 +66,13 @@ public class SearchResultsActivity extends ActionBarActivity {
         /** get image data */
         @Override
         protected Void doInBackground(Void... params) {
-            imageArrayList = new ArrayList<String>();
+            imageArrayList = new ArrayList<Pair<String, ParseObject>();
 
-            // Enable Parse
-            Parse.enableLocalDatastore(getApplicationContext());
-            Parse.initialize(getApplicationContext(),
-                    "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                    "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+//            // Enable Parse
+//            Parse.enableLocalDatastore(getApplicationContext());
+//            Parse.initialize(getApplicationContext(),
+//                    "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+//                    "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
             try {
                 ParseQuery query = ParseQuery.getQuery("ImageUpload");
 
@@ -131,7 +132,7 @@ public class SearchResultsActivity extends ActionBarActivity {
     /** set up ImageAdapter which helps display the image */
     class ImageAdapter extends BaseAdapter {
         private Context context;
-        ArrayList<String> imageArrayList;
+        ArrayList imageArrayList;
 
         public ImageAdapter(Context c, ArrayList<String> imageArray) {
             context = c;
@@ -173,8 +174,21 @@ public class SearchResultsActivity extends ActionBarActivity {
             }
             try {
                 InputStream in = new URL(imageArrayList.get(position)).openStream();
-                Bitmap bmp = BitmapFactory.decodeStream(in);
+                final Bitmap bmp = BitmapFactory.decodeStream(in);
                 holder.image.setImageBitmap(bmp);
+
+                ImageView image = (ImageView) view.findViewById(R.id.image_view);
+
+                image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(),
+                                EnlargedImageActivity.class);
+                        intent.putExtra("bmp", bmp);
+                        intent.putExtra("diagnosis", image.)
+
+                    }
+                });
             } catch (Exception e) {
                 e.printStackTrace();
             }

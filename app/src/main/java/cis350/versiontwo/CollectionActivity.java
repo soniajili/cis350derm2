@@ -138,8 +138,11 @@ public class CollectionActivity extends ActionBarActivity {
                 InputStream in = new URL(imageArrayList.get(position)).openStream();
                 Bitmap bmp = BitmapFactory.decodeStream(in);
                 holder.image.setImageBitmap(bmp);
+                ImageView imageView = (ImageView) view.findViewById(R.id.image);
+
             } catch (Exception e) {
                 e.printStackTrace();
+
             }
 
             return row;

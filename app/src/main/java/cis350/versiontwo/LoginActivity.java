@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
@@ -30,10 +29,10 @@ public class LoginActivity extends ActionBarActivity {
         final EditText emailText = (EditText) findViewById(R.id.emailText);
         final EditText passwordText = (EditText) findViewById(R.id.passwordText);
 
-        // Enable Parse
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+//        // Enable Parse
+//        Parse.enableLocalDatastore(this);
+//        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             // Sign in when sign in button is clicked

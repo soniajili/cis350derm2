@@ -11,9 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -49,11 +47,11 @@ public class RegistrationActivity extends ActionBarActivity {
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         practiceSettingSelection.setAdapter(settingAdapter);
 
-        // Enable Local Datastore.
-        ParseObject.registerSubclass(ParseUser.class);
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+//        // Enable Local Datastore.
+//        ParseObject.registerSubclass(ParseUser.class);
+//        Parse.enableLocalDatastore(this);
+//        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         register = (Button) findViewById(R.id.registerButton);
         final EditText email = (EditText) findViewById(R.id.emailLabel);

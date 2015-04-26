@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -41,11 +40,11 @@ public class PreviewActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
 
-        // Enable Parse
-        Parse.enableLocalDatastore(getApplicationContext());
-        Parse.initialize(getApplicationContext(),
-                "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
+//        // Enable Parse
+//        Parse.enableLocalDatastore(getApplicationContext());
+//        Parse.initialize(getApplicationContext(),
+//                "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
+//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
 
         image = (ImageView) findViewById(R.id.image);
         diagnosisText = (TextView) findViewById(R.id.diagnosisText);
