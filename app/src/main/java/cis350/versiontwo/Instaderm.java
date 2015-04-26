@@ -8,11 +8,15 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 
-public class Instaderm extends Application {
+public class Instaderm extends android.app.Application {
 
     /** Enable Parse on all app pages */
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
         ParseObject.registerSubclass(ParseUser.class);
+        
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
                 "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
