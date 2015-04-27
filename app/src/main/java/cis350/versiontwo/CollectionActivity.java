@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,7 @@ import java.util.List;
 public class CollectionActivity extends ActionBarActivity {
     GridView gridView;
     List<ParseObject> obj;
+    ArrayList<Pair<String, ParseObject>> pairArrayList;
     ArrayList<String> imageArrayList;
     ImageAdapter adapter;
 
@@ -56,6 +58,7 @@ public class CollectionActivity extends ActionBarActivity {
         /** get image data */
         @Override
         protected Void doInBackground(Void... params) {
+            pairArrayList = new ArrayList<Pair<String, ParseObject>>();
             imageArrayList = new ArrayList<String>();
             try {
 
@@ -65,6 +68,9 @@ public class CollectionActivity extends ActionBarActivity {
                 for (ParseObject o : obj) {
                     ParseFile image = (ParseFile) o.get("file");
                     if (image != null) {
+                        Pair<String, ParseObject> imageToAdd = new Pair<String,
+                                ParseObject>(image.getUrl(), o);
+                        pairArrayList.add(imageToAdd);
                         imageArrayList.add(image.getUrl());
                         Log.d("URL: ", image.getUrl());
                     }
@@ -134,6 +140,7 @@ public class CollectionActivity extends ActionBarActivity {
             Log.d("ArrayList size: ", Integer.toString(imageArrayList.size()));
             View row = view;
             ViewHolder holder;
+            final int objectPosition = position;
 
             if (row == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context
@@ -151,6 +158,35 @@ public class CollectionActivity extends ActionBarActivity {
                 InputStream in = new URL(imageArrayList.get(position)).openStream();
                 Bitmap bmp = BitmapFactory.decodeStream(in);
                 holder.image.setImageBitmap(bmp);
+
+                holder.image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(),
+                                EnlargedImageActivity.class);
+                        Pair<String, ParseObject> pairImage = pairArrayList.get
+                                (objectPosition);
+                        ParseObject image = pairImage.second;
+                        String diagnosis = (String) image.get("diagnosis");
+                        String tagText = (String) image.get("tags");
+                        String location = (String) image.get("location");
+                        String upvotes = String.valueOf(image.get("upvotes"));
+                        String downvotes = String.valueOf(image.get("downvotes"));
+                        String id = image.getObjectId();
+                        ParseFile file = (ParseFile) image.get("file");
+                        String url = (String) file.getUrl();
+                        intent.putExtra("diagnosis", diagnosis);
+                        intent.putExtra("tags", tagText);
+                        intent.putExtra("location", location);
+                        intent.putExtra("url", url);
+                        intent.putExtra("upvotes", upvotes);
+                        intent.putExtra("downvotes", downvotes);
+                        intent.putExtra("id", id);
+
+                        startActivity(intent);
+                    }
+                });
+
             } catch (Exception e) {
                 e.printStackTrace();
 

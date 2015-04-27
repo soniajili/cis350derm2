@@ -43,12 +43,6 @@ public class SearchResultsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
-//        // Enable Parse
-//        Parse.enableLocalDatastore(getApplicationContext());
-//        Parse.initialize(getApplicationContext(),
-//                "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
-
         Intent intent = getIntent();
         searchTerm = intent.getStringExtra("searchTerm");
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -69,11 +63,6 @@ public class SearchResultsActivity extends ActionBarActivity {
             pairArrayList = new ArrayList<Pair<String, ParseObject>>();
             imageArrayList = new ArrayList<String>();
 
-//            // Enable Parse
-//            Parse.enableLocalDatastore(getApplicationContext());
-//            Parse.initialize(getApplicationContext(),
-//                    "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-//                    "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
             try {
                 ParseQuery query = ParseQuery.getQuery("ImageUpload");
 
