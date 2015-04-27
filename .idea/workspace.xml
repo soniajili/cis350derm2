@@ -80,8 +80,13 @@
       <file leaf-file-name="SearchResultsActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchResultsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="1641" max-vertical-offset="3600">
               <caret line="207" column="50" selection-start-line="207" selection-start-column="50" selection-end-line="207" selection-end-column="50" />
+=======
+            <state vertical-scroll-proportion="-6.178571" vertical-offset="2649" max-vertical-offset="3400">
+              <caret line="192" column="52" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
               <folding>
                 <element signature="e#6646#8156#0" expanded="true" />
                 <element signature="e#8137#8138#0" expanded="true" />
@@ -90,6 +95,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="gridview_item.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/gridview_item.xml">
           <provider editor-type-id="android-designer">
@@ -99,6 +105,26 @@
             <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="288">
               <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="8" selection-end-column="46" />
               <folding />
+=======
+      <file leaf-file-name="SubmitActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SubmitActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="2448">
+              <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnlargedImageActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/EnlargedImageActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="969">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
             </state>
           </provider>
         </entry>
@@ -138,8 +164,23 @@
       <file leaf-file-name="PreviewActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/PreviewActivity.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2304">
               <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
+=======
+            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="2159">
+              <caret line="58" column="31" selection-start-line="55" selection-start-column="8" selection-end-line="58" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollectionActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/CollectionActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64798206" vertical-offset="1734" max-vertical-offset="2397">
+              <caret line="153" column="49" selection-start-line="153" selection-start-column="49" selection-end-line="153" selection-end-column="49" />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
               <folding />
             </state>
           </provider>
@@ -1229,7 +1270,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/GetImageActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/PracticeSettingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SubmitActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/ViewOnlyDisclaimerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/ViewOnlyHomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_disclaimer.xml" />
@@ -1265,6 +1305,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/Instaderm.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/RegistrationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_collection.xml" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchResultsActivity.java" />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_results.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/CollectionActivity.java" />
@@ -1275,6 +1319,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/PreviewActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchResultsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/EnlargedImageActivity.java" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SubmitActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/CollectionActivity.java" />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
       </list>
     </option>
   </component>
@@ -2009,13 +2060,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SubmitActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="788" max-vertical-offset="2592">
-          <caret line="76" column="75" selection-start-line="76" selection-start-column="73" selection-end-line="76" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/ViewOnlyDisclaimerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1626794" vertical-offset="288" max-vertical-offset="1062">
@@ -2150,6 +2194,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1105">
@@ -2159,6 +2204,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_enlarged_image.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_enlarged_image.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
@@ -2168,6 +2219,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_collection.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49263158" vertical-offset="0" max-vertical-offset="475">
@@ -2211,6 +2263,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.72" vertical-offset="1143" max-vertical-offset="2286">
           <caret line="77" column="68" selection-start-line="77" selection-start-column="68" selection-end-line="77" selection-end-column="68" />
@@ -2248,6 +2303,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/gridview_item.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2255,10 +2311,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="288">
           <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="8" selection-end-column="46" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1105">
+          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+          <folding>
+            <element signature="e#727#1272#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/PreviewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="2159">
+          <caret line="58" column="31" selection-start-line="55" selection-start-column="8" selection-end-line="58" selection-end-column="31" />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_enlarged_image.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2266,6 +2340,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0333333" vertical-offset="1579" max-vertical-offset="2070">
           <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/EnlargedImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="969">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchResultsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.178571" vertical-offset="2649" max-vertical-offset="3400">
+          <caret line="192" column="52" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
           <folding>
             <element signature="e#233#266#0" expanded="true" />
             <element signature="e#291#326#0" expanded="true" />
@@ -2275,6 +2365,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SearchResultsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2739" max-vertical-offset="3600">
@@ -2283,13 +2374,25 @@
             <element signature="e#6646#8156#0" expanded="true" />
             <element signature="e#8137#8138#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/SubmitActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="2448">
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+          <folding />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/PreviewActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cis350/versiontwo/CollectionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2304">
           <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
+=======
+        <state vertical-scroll-proportion="0.64798206" vertical-offset="1734" max-vertical-offset="2397">
+          <caret line="153" column="49" selection-start-line="153" selection-start-column="49" selection-end-line="153" selection-end-column="49" />
+>>>>>>> ddc28f9e36e9055d70a53697dfa1425d3a98035c
           <folding />
         </state>
       </provider>
