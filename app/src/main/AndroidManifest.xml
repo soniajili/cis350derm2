@@ -107,6 +107,11 @@
             <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
             <!-- </intent-filter> -->
         </activity>
+
+        <activity
+            android:name=".EnlargedImageActivity"
+            android:label="@string/title_activity_enlarged_image" >
+        </activity>
     </application>
 
 </manifest>

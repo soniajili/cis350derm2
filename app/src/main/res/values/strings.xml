@@ -409,4 +409,5 @@
     </string>
     <string name="title_activity_get_image">Get Image</string>
     <string name="title_activity_search_results">Search Results</string>
+    <string name="title_activity_enlarged_image">Image Details</string>
 </resources>

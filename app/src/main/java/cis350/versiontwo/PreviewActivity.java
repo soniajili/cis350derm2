@@ -98,7 +98,8 @@ public class PreviewActivity extends ActionBarActivity {
                          imageSubmission.put("diagnosis", diagnosis);
                          imageSubmission.put("tags", tags);
                          imageSubmission.put("location", location);
-
+                         imageSubmission.put("upvotes", 0);
+                         imageSubmission.put("downvotes", 0);
                          imageSubmission.saveInBackground();
 
                          Intent intent = new Intent(PreviewActivity.this,

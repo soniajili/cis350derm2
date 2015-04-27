@@ -11,7 +11,6 @@ import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -152,8 +151,6 @@ public class CollectionActivity extends ActionBarActivity {
                 InputStream in = new URL(imageArrayList.get(position)).openStream();
                 Bitmap bmp = BitmapFactory.decodeStream(in);
                 holder.image.setImageBitmap(bmp);
-                ImageView imageView = (ImageView) view.findViewById(R.id.image);
-
             } catch (Exception e) {
                 e.printStackTrace();
 

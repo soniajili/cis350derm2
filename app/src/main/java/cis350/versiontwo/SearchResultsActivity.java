@@ -183,23 +183,30 @@ public class SearchResultsActivity extends ActionBarActivity {
                 final Bitmap bmp = BitmapFactory.decodeStream(in);
                 holder.image.setImageBitmap(bmp);
 
-                ImageView image = (ImageView) view.findViewById(R.id.image_view);
-
-                image.setOnClickListener(new View.OnClickListener() {
+                holder.image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(),
                                 EnlargedImageActivity.class);
-                        intent.putExtra("bmp", bmp);
                         Pair<String, ParseObject> pairImage = pairArrayList.get
                                 (objectPosition);
                         ParseObject image = pairImage.second;
                         String diagnosis = (String) image.get("diagnosis");
                         String tagText = (String) image.get("tags");
                         String location = (String) image.get("location");
+                        String upvotes = (String) image.get("upvotes");
+                        String downvotes = (String) image.get("downvotes");
+                        String id = (String) image.get("objectID");
+                        ParseFile file = (ParseFile) image.get("file");
+                        String url = (String) file.getUrl();
                         intent.putExtra("diagnosis", diagnosis);
                         intent.putExtra("tags", tagText);
                         intent.putExtra("location", location);
+                        intent.putExtra("url", url);
+                        intent.putExtra("upvotes", upvotes);
+                        intent.putExtra("downvotes", downvotes);
+                        intent.putExtra("id", id);
+
                         startActivity(intent);
                     }
                 });

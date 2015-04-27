@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\classes-d82dc4c24cc84120c1c77bee237c484089b095e8.jar" />
-    </item>
-    <item
-        jar="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-430a96a8859c8c633b4838c67deb35ef891e26d9.jar" />
-    </item>
-    <item
-        jar="C:\Users\Anna Yang\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jar="/Users/Sonia/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-475934503490c055fb023603d889f01b9b43c368.jar" />
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-b437d4d59f8eb158f4cff9e0160dbb13a2fe053e.jar" />
     </item>
     <item
-        jar="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jar="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\classes-e06e3dc355411f34588849f82d00f68b99c67a63.jar" />
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-bd0d0800095118a2b4a69e4a8202236fe667bc7e.jar" />
     </item>
     <item
-        jar="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\libs\Parse-1.9.0.jar"
+        jar="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="5811138d4e6cb9d45030e133ef1a61b935154c3a">
-        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\Parse-1.9.0-9918b42ff8bf6f26e3c53c2271323806f119a285.jar" />
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/classes-3f516d8c2e9730d885d8734fef60abdb45adc662.jar" />
     </item>
     <item
-        jar="C:\Users\Anna Yang\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jar="/Users/Sonia/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="C:\Users\Anna Yang\Documents\GitHub\cis350derm2\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-fbf12e16062ba2486eeafae4fbf6fa28cb511f08.jar" />
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-8664cc6ed6f3dbae1a5d9d17f0d58954d14d77a2.jar" />
+    </item>
+    <item
+        jar="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/classes-59a9b24901b8af3ae3e4b781d3fc10708b09f9ed.jar" />
+    </item>
+    <item
+        jar="/Users/Sonia/Documents/cis350derm2/app/libs/Parse-1.9.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5811138d4e6cb9d45030e133ef1a61b935154c3a">
+        <dex dex="/Users/Sonia/Documents/cis350derm2/app/build/intermediates/pre-dexed/debug/Parse-1.9.0-3b2fb15677f551217cd2acd50c401a701b3ef496.jar" />
     </item>
 
 </items>
