@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,6 +18,8 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
+import com.parse.ParseQuery;
+import com.parse.GetCallback;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -29,9 +32,11 @@ public class EnlargedImageActivity extends ActionBarActivity {
     TextView diagnosisText;
     TextView tagText;
     TextView locationText;
+    TextView upvoteText;
+    TextView downvoteText;
     ImageView image;
-    ImageButton upVoteButton;
-    ImageButton downVoteButton;
+    ImageButton upvoteButton;
+    ImageButton downvoteButton;
 
     /** Display page initially */
     @Override
@@ -39,20 +44,27 @@ public class EnlargedImageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enlarged_image);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String diagnosis = intent.getStringExtra("diagnosis");
         String tags = intent.getStringExtra("tags");
         String location = intent.getStringExtra("location");
         String url = intent.getStringExtra("url");
-        final String id = intent.getStringExtra("id");
         String upvotesString = intent.getStringExtra("upvotes");
         String downvotesString = intent.getStringExtra("downvotes");
-        final Integer upInt = Integer.parseInt(upvotesString);
-        Integer downInt = Integer.parseInt(downvotesString);
+        upvoteText = (TextView) findViewById(R.id.upvoteNumber);
+        downvoteText = (TextView) findViewById(R.id.downvoteNumber);
+        upvoteText.setText(upvotesString);
+        downvoteText.setText(downvotesString);
+        final Integer oUpInt = Integer.parseInt(upvotesString);
+        final Integer oDownInt = Integer.parseInt(downvotesString);
 
         diagnosisText = (TextView) findViewById(R.id.diagnosisText);
         tagText = (TextView) findViewById(R.id.tagText);
         locationText = (TextView) findViewById(R.id.locationText);
+
+        upvoteButton = (ImageButton) findViewById(R.id.upvoteButton);
+        downvoteButton = (ImageButton) findViewById(R.id.downvoteButton);
+
         image = (ImageView) findViewById(R.id.image);
 
         diagnosisText.setText(diagnosis);
@@ -67,48 +79,72 @@ public class EnlargedImageActivity extends ActionBarActivity {
             e.printStackTrace();
         }
 
+        // set functionality for the upvote button
         upvoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             // upload image and data when submit button is clicked
             public void onClick(View v) {
 
-                final ParseObject imageSubmission = new ParseObject
-                        ("ImageUpload");
-                int up = upInt.intValue() + 1;
+                final ParseObject imageSubmission = new ParseObject("ImageUpload");
 
+                String upvotesString = intent.getStringExtra("upvotes");
+                String id = intent.getStringExtra("id");
+                final int upInt = Integer.parseInt(upvotesString) + 1;
 
-                final ParseFile imageFile = new ParseFile("img",
-                        convertImageToBytes(Uri.parse(uriString)));
-                imageFile.saveInBackground(new SaveCallback() {
+                upvoteText.setText(String.valueOf(upInt));
 
-                    @Override
-                    public void done(ParseException e) {
+                ParseQuery query = ParseQuery.getQuery("ImageUpload");
+                query.getInBackground(id, new GetCallback<ParseObject>() {
+                    public void done(ParseObject object, ParseException e) {
                         if (e == null) {
 
-                            imageSubmission.put("file", imageFile);
-                            imageSubmission.put("objectType", "image");
-                            imageSubmission.put("diagnosis", diagnosis);
-                            imageSubmission.put("tags", tags);
-                            imageSubmission.put("location", location);
-
-                            imageSubmission.saveInBackground();
-
-                            Intent intent = new Intent(PreviewActivity.this,
-                                    CollectionActivity.class);
-                            startActivity(intent);
+                            if (oUpInt == object.getInt("upvotes")) {
+                                object.increment("upvotes");
+                                object.saveInBackground();
+                            }
 
                         } else {
-                            Toast.makeText(getApplicationContext(),
-                                    "Failed to save image",
-                                    Toast.LENGTH_SHORT).show();
-
+                            //failed
                         }
                     }
                 });
             }
         });
 
+        // set functionality for the downvoteButton
+        downvoteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            // upload image and data when submit button is clicked
+            public void onClick(View v) {
+
+                final ParseObject imageSubmission = new ParseObject("ImageUpload");
+
+                String downvotesString = intent.getStringExtra("downvotes");
+                String id = intent.getStringExtra("id");
+                final int downInt = Integer.parseInt(downvotesString) + 1;
+
+                downvoteText.setText(String.valueOf(downInt));
+
+                ParseQuery query = ParseQuery.getQuery("ImageUpload");
+                Log.d("the id is: ", String.valueOf(id));
+                query.getInBackground(id, new GetCallback<ParseObject>() {
+                    public void done(ParseObject object, ParseException e) {
+                        if (e == null) {
+
+                            if (oDownInt == object.getInt("downvotes")) {
+                                object.increment("downvotes");
+                                object.saveInBackground();
+                            }
+
+                        } else {
+                            //failed
+                        }
+                    }
+                });
+            }
+        });
     }
+
 
     /** Inflate the menu; this adds items to the action bar if it is present */
     @Override

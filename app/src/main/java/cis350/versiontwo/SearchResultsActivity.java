@@ -192,11 +192,15 @@ public class SearchResultsActivity extends ActionBarActivity {
                                 (objectPosition);
                         ParseObject image = pairImage.second;
                         String diagnosis = (String) image.get("diagnosis");
+                        Log.d("diagnosis: ", diagnosis);
                         String tagText = (String) image.get("tags");
+                        Log.d("tags: ", tagText);
                         String location = (String) image.get("location");
-                        String upvotes = (String) image.get("upvotes");
-                        String downvotes = (String) image.get("downvotes");
-                        String id = (String) image.get("objectID");
+                        Log.d("location: ", location);
+                        String upvotes = String.valueOf(image.get("upvotes"));
+                        String downvotes = String.valueOf(image.get("downvotes"));
+                        String id = image.getObjectId();
+                        Log.d("id: ", id);
                         ParseFile file = (ParseFile) image.get("file");
                         String url = (String) file.getUrl();
                         intent.putExtra("diagnosis", diagnosis);
@@ -206,6 +210,7 @@ public class SearchResultsActivity extends ActionBarActivity {
                         intent.putExtra("upvotes", upvotes);
                         intent.putExtra("downvotes", downvotes);
                         intent.putExtra("id", id);
+                        Log.d("searchResultsActivity: ", String.valueOf(id));
 
                         startActivity(intent);
                     }

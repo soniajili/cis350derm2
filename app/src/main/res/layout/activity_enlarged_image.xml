@@ -79,7 +79,7 @@
                     android:id="@+id/upvoteButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/thumbsUp"/>
+                    android:src="@drawable/thumbs_up"/>
 
                 <TextView
                     android:id="@+id/upvoteNumber"
@@ -92,7 +92,7 @@
                     android:id="@+id/downvoteButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/thumbsDown"/>
+                    android:src="@drawable/thumbs_down"/>
 
                 <TextView
                     android:id="@+id/downvoteNumber"
