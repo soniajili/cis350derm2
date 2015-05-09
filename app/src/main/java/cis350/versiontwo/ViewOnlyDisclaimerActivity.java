@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 
+/**
+ * ViewOnlyDisclaimerActivity displays the disclaimer and forces the user to accept before proceeding.
+ */
 public class ViewOnlyDisclaimerActivity extends ActionBarActivity {
 
     CheckBox checkboxDisclaimer;

@@ -7,7 +7,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-
+/**
+ * HomeActivity is the main screen, from which the user can submit a new case, search, and
+ * view the collection.
+ */
 public class HomeActivity extends ActionBarActivity {
 
     Button submitButton;

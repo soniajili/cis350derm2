@@ -7,7 +7,9 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-
+/**
+ * Instaderm sets up the Parse database across all pages in the app.
+ */
 public class Instaderm extends android.app.Application {
 
     /** Enable Parse on all app pages */

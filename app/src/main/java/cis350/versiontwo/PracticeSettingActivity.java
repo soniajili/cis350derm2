@@ -10,7 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-
+/**
+ * PracticeSettingActivity allows the user to select additional information about their practice
+ * setting when registering a new account.
+ */
 public class PracticeSettingActivity extends ActionBarActivity {
     Spinner practiceSettingSpinner;
     Button proceedButton;

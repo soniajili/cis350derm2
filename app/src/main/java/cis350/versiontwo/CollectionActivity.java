@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * CollectionActivity displays the collection of iimages in the database and links to
+ * EnlargedImageActivity when a user clicks on an image in the gallery.
+ */
 public class CollectionActivity extends ActionBarActivity {
     GridView gridView;
     List<ParseObject> obj;
@@ -89,6 +93,13 @@ public class CollectionActivity extends ActionBarActivity {
             adapter = new ImageAdapter(CollectionActivity.this, imageArrayList);
             gridView.setAdapter(adapter);
         }
+    }
+
+    /** Sets up the menu */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_collection, menu);
+        return true;
     }
 
     /** Handle action bar item clicks here */

@@ -25,7 +25,8 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * Created by Sonia on 4/25/15.
+ * EnglargedImageActivity allows the user to view a larger version of the image with details
+ * about the diagnosis. Also allows users to upvote or downvote an image.
  */
 public class EnlargedImageActivity extends ActionBarActivity {
 
@@ -44,6 +45,7 @@ public class EnlargedImageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enlarged_image);
 
+        // Receive data from previous page's click
         final Intent intent = getIntent();
         String diagnosis = intent.getStringExtra("diagnosis");
         String tags = intent.getStringExtra("tags");

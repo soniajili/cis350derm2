@@ -17,6 +17,9 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+/**
+ * RegistrationActivity allows a user to register a new account by inputting certain information.
+ */
 public class RegistrationActivity extends ActionBarActivity {
     Spinner genderSelection;
     Spinner practiceSettingSelection;
@@ -49,12 +52,6 @@ public class RegistrationActivity extends ActionBarActivity {
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         practiceSettingSelection.setAdapter(settingAdapter);
 
-        // Enable Local Datastore.
-//        ParseObject.registerSubclass(ParseUser.class);
-//        Parse.enableLocalDatastore(this);
-//        Parse.initialize(this, "fviaFJ9B1jQdWCCnS419jkZ8dFVquHBd1lu0Y1jF",
-//                "p6dYSbB0KVF7KPvstO2ui7B32RanUEj9vmS28DLi");
-
         register = (Button) findViewById(R.id.registerButton);
         final EditText email = (EditText) findViewById(R.id.emailLabel);
         final EditText name = (EditText) findViewById(R.id.name);
@@ -64,7 +61,6 @@ public class RegistrationActivity extends ActionBarActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String gender = genderSelection.getSelectedItem().toString();
                 String country = textView.getText().toString();
                 String setting = practiceSettingSelection.getSelectedItem().toString();
@@ -95,8 +91,7 @@ public class RegistrationActivity extends ActionBarActivity {
                         @Override
                         public void done(ParseException e) {
                             if (e == null) {
-                                // Sign up succeeded. Proceed to Practice
-                                // Settings
+                                // Sign up succeeded. Proceed to Practice Settings
                                 Intent intent;
                                 if (practiceSettingSelection.getSelectedItem().toString().equals
                                         ("Dermatologist")) {
@@ -104,10 +99,8 @@ public class RegistrationActivity extends ActionBarActivity {
                                             .this,
                                             PracticeSettingActivity.class);
                                 } else {
-                                    intent = new Intent(RegistrationActivity
-                                            .this,
-                                            ViewOnlyPracticeSettingActivity
-                                                    .class);
+                                    intent = new Intent(RegistrationActivity.this,
+                                            ViewOnlyPracticeSettingActivity.class);
                                 }
 
                                 startActivity(intent);
@@ -120,11 +113,7 @@ public class RegistrationActivity extends ActionBarActivity {
                         }
                     });
                 }
-
             }
         });
-
     }
-
-
 }

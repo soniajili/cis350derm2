@@ -14,6 +14,10 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 
 
+/**
+ * EnterDiagnosisActivity allows the user to upload and image and input associated diagnosis
+ * information, including tags and location on the body.
+ */
 public class EnterDiagnosisActivity extends ActionBarActivity {
     Spinner locationSelection;
     Button previewButton;
@@ -25,6 +29,7 @@ public class EnterDiagnosisActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_diagnosis);
 
+        // Display the image
         Intent intent = getIntent();
         final Uri uri = intent.getParcelableExtra("URI");
 

@@ -37,13 +37,11 @@ public class GetImageActivity extends Activity {
 
     /** display image when image is clicked */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == SELECT_PICTURE) {
-                Uri selectedImageUri = data.getData();
-                selectedImagePath = getPath(selectedImageUri);
-                System.out.println("Image Path : " + selectedImagePath);
-                img.setImageURI(selectedImageUri);
-            }
+        if (resultCode == RESULT_OK && requestCode == SELECT_PICTURE) {
+            Uri selectedImageUri = data.getData();
+            selectedImagePath = getPath(selectedImageUri);
+            System.out.println("Image Path : " + selectedImagePath);
+            img.setImageURI(selectedImageUri);
         }
     }
 

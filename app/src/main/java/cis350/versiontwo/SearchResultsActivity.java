@@ -29,6 +29,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SearchResultsActivity displays the resulting collection of images that are associated
+ * with the query that the user inputs into the search bar.
+ */
 public class SearchResultsActivity extends ActionBarActivity {
     GridView gridView;
     List<ParseObject> obj;
@@ -50,6 +54,7 @@ public class SearchResultsActivity extends ActionBarActivity {
 
         new RemoteDataTask().execute();
     }
+
     /**  perform background operations and publish results on the UI thread */
     class RemoteDataTask extends AsyncTask<Void, Void, Void> {
         @Override
